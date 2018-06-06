@@ -16,11 +16,4 @@ public class UserController {
     private UserService userService;
     @Autowired
     private RedisUtil redisUtil;
-    @GetMapping("index.html")
-    public String index(Model model){
-        redisUtil.setValue("user",userService.getUsers().get(0).getName());
-        model.addAttribute("user",redisUtil.getValue("user"));
-        System.out.println(redisUtil.getValue("user"));
-        return "index";
-    }
 }
