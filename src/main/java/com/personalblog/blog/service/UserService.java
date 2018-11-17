@@ -1,9 +1,9 @@
 package com.personalblog.blog.service;
 
-import com.personalblog.blog.pojo.User;
+import com.personalblog.blog.pojo.TSysUser;
 
 import java.util.List;
 
 public interface UserService {
-    List<User> getUsers();
+    List<TSysUser> getUsers();
 }
