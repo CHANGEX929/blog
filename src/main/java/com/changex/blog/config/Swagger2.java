@@ -23,7 +23,7 @@ public class Swagger2 {
     public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).select()
 //                   当前包路径
-                .apis(RequestHandlerSelectors.basePackage("com.changex.blog.Controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.changex.blog.controller"))
                 .paths(PathSelectors.any()).build();
 
     }

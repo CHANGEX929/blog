@@ -1,104 +1,70 @@
 <#--头部 BEGIN-->
 <#include "public/head.ftl">
 <#--头部 END-->
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-lg-10 col-md-offset-2 main" id="main">
-            <h1 class="page-header">信息总览</h1>
-            <div class="row placeholders">
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <h4>文章</h4>
-                    <span class="text-muted">0 条</span></div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <h4>评论</h4>
-                    <span class="text-muted">0 条</span></div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <h4>友链</h4>
-                    <span class="text-muted">0 条</span></div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <h4>访问量</h4>
-                    <span class="text-muted">0</span></div>
-            </div>
-            <h1 class="page-header">状态</h1>
-            <div class="table-responsive">
-                <table class="table table-striped table-hover">
-                    <tbody>
-                    <tr>
-                        <td>登录者: <span>admin</span>，这是您第 <span>13</span> 次登录</td>
-                    </tr>
-                    <tr>
-                        <td>上次登录时间: 2016-01-08 15:50:28 , 上次登录IP: ::1:55570</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <h1 class="page-header">系统信息</h1>
-            <div class="table-responsive">
-                <table class="table table-striped table-hover">
-                    <thead>
-                    <tr></tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>管理员个数:</td>
-                        <td>2 人</td>
-                        <td>服务器软件:</td>
-                        <td>Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9</td>
-                    </tr>
-                    <tr>
-                        <td>浏览器:</td>
-                        <td>Chrome47</td>
-                        <td>PHP版本:</td>
-                        <td>5.6.1</td>
-                    </tr>
-                    <tr>
-                        <td>操作系统:</td>
-                        <td>Windows 10</td>
-                        <td>PHP运行方式:</td>
-                        <td>CGI-FCGI</td>
-                    </tr>
-                    <tr>
-                        <td>登录者IP:</td>
-                        <td>::1:55570</td>
-                        <td>MYSQL版本:</td>
-                        <td>5.5.40</td>
-                    </tr>
-                    <tr>
-                        <td>程序版本:</td>
-                        <td class="version">YlsatCMS 1.0 <font size="-6" color="#BBB">(20160108160215)</font></td>
-                        <td>上传文件:</td>
-                        <td>可以 <font size="-6" color="#BBB">(最大文件：2M ，表单：8M )</font></td>
-                    </tr>
-                    <tr>
-                        <td>程序编码:</td>
-                        <td>UTF-8</td>
-                        <td>当前时间:</td>
-                        <td>2016-01-08 15:50:30</td>
-                    </tr>
-                    </tbody>
-                    <tfoot>
-                    <tr></tr>
-                    </tfoot>
-                </table>
-            </div>
-            <footer>
-                <h1 class="page-header">程序信息</h1>
-                <div class="table-responsive">
-                    <table class="table table-striped table-hover">
-                        <tbody>
-                        <tr>
-                            <td><span style="display:inline-block; width:8em">版权所有</span> POWERED BY WY ALL RIGHTS
-                                RESERVED
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span style="display:inline-block;width:8em">页面加载时间</span> PROCESSED IN 1.0835s SECONDS
-                                更多模板：<a href="http://www.mycodes.net/" target="_blank">源码之家</a></td>
-                        </tr>
-                        </tbody>
-                    </table>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-lg-10 col-md-offset-2 main" id="main">
+        <div class="row">
+            <form action="/Flink/update" method="post" class="add-flink-form" autocomplete="off" draggable="false">
+                <div class="col-md-9">
+                    <h1 class="page-header">修改友情链接</h1>
+                    <div class="add-article-box">
+                        <h2 class="add-article-box-title"><span>名称</span></h2>
+                        <div class="add-article-box-content">
+                            <input type="text" id="flink-name" name="name" class="form-control" value="异清轩技术博客"
+                                   placeholder="在此处输入名称" required autofocus autocomplete="off">
+                            <span class="prompt-text">例如：异清轩技术博客</span></div>
+                    </div>
+                    <div class="add-article-box">
+                        <h2 class="add-article-box-title"><span>WEB地址</span></h2>
+                        <div class="add-article-box-content">
+                            <input type="text" id="flink-url" name="url" class="form-control"
+                                   value="http://www.ylsat.com" placeholder="在此处输入URL地址" required autocomplete="off">
+                            <span class="prompt-text">例子：<code>http://www.ylsat.com/</code>——不要忘了<code>http://</code></span>
+                        </div>
+                    </div>
+                    <div class="add-article-box">
+                        <h2 class="add-article-box-title"><span>图像地址</span></h2>
+                        <div class="add-article-box-content">
+                            <input type="text" id="flink-imgurl" name="imgurl" class="form-control"
+                                   value="http://www.ylsat.com/images/logo.png" placeholder="在此处输入图像地址" required
+                                   autocomplete="off">
+                            <span class="prompt-text">图像地址是可选的，可以为网站LOGO地址等</span></div>
+                    </div>
+                    <div class="add-article-box">
+                        <h2 class="add-article-box-title"><span>描述</span></h2>
+                        <div class="add-article-box-content">
+                            <textarea class="form-control" name="describe" autocomplete="off">备注：异清轩技术博客</textarea>
+                            <span class="prompt-text">描述是可选的手工创建的内容总结</span></div>
+                    </div>
                 </div>
-            </footer>
+                <div class="col-md-3">
+                    <h1 class="page-header">操作</h1>
+                    <div class="add-article-box">
+                        <h2 class="add-article-box-title"><span>保存</span></h2>
+                        <div class="add-article-box-content">
+                            <p>
+                                <label>状态：</label>
+                                <span class="article-status-display">已增加</span></p>
+                            <p><label>target：</label><input type="radio" name="target" value="0" checked/>_blank&nbsp;&nbsp;<input
+                                    type="radio" name="target" value="1"/>_self&nbsp;&nbsp;<input type="radio"
+                                                                                                  name="target"
+                                                                                                  value="2"/>_top</p>
+                            <p><label>rel：</label><input type="radio" name="rel" value="0" checked/>nofollow&nbsp;&nbsp;<input
+                                    type="radio" name="rel" value="1"/>none</p>
+                            <p>
+                                <label>修改于：</label>
+                                <span class="article-time-display">
+                  <input style="border: none;" type="datetime" name="time" value="2016-01-09 17:29:37"/>
+                  </span></p>
+                        </div>
+                        <div class="add-article-box-footer">
+                            <button class="btn btn-primary" type="submit" name="submit">更新</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
+  </div>
 </section>
 <!--个人信息模态框-->
 <div class="modal fade" id="seeUserInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -232,7 +198,7 @@
                 </button>
                 <h4 class="modal-title" id="areDevelopingModalLabel" style="cursor:default;">该功能正在日以继夜的开发中…</h4>
             </div>
-            <div class="modal-body"><img src="../../images/baoman/baoman_01.gif" alt="深思熟虑"/>
+            <div class="modal-body"><img src="images/baoman/baoman_01.gif" alt="深思熟虑"/>
                 <p style="padding:15px 15px 15px 100px; position:absolute; top:15px; cursor:default;">
                     很抱歉，程序猿正在日以继夜的开发此功能，本程序将会在以后的版本中持续完善！</p>
             </div>
@@ -255,6 +221,5 @@
 <#--尾部 BEGIN-->
 <#include "public/foot.ftl">
 <#--尾部 END-->
-
 </body>
 </html>

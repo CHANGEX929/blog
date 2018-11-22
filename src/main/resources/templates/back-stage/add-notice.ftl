@@ -1,104 +1,58 @@
 <#--头部 BEGIN-->
 <#include "public/head.ftl">
 <#--头部 END-->
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-lg-10 col-md-offset-2 main" id="main">
-            <h1 class="page-header">信息总览</h1>
-            <div class="row placeholders">
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <h4>文章</h4>
-                    <span class="text-muted">0 条</span></div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <h4>评论</h4>
-                    <span class="text-muted">0 条</span></div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <h4>友链</h4>
-                    <span class="text-muted">0 条</span></div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <h4>访问量</h4>
-                    <span class="text-muted">0</span></div>
-            </div>
-            <h1 class="page-header">状态</h1>
-            <div class="table-responsive">
-                <table class="table table-striped table-hover">
-                    <tbody>
-                    <tr>
-                        <td>登录者: <span>admin</span>，这是您第 <span>13</span> 次登录</td>
-                    </tr>
-                    <tr>
-                        <td>上次登录时间: 2016-01-08 15:50:28 , 上次登录IP: ::1:55570</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <h1 class="page-header">系统信息</h1>
-            <div class="table-responsive">
-                <table class="table table-striped table-hover">
-                    <thead>
-                    <tr></tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>管理员个数:</td>
-                        <td>2 人</td>
-                        <td>服务器软件:</td>
-                        <td>Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9</td>
-                    </tr>
-                    <tr>
-                        <td>浏览器:</td>
-                        <td>Chrome47</td>
-                        <td>PHP版本:</td>
-                        <td>5.6.1</td>
-                    </tr>
-                    <tr>
-                        <td>操作系统:</td>
-                        <td>Windows 10</td>
-                        <td>PHP运行方式:</td>
-                        <td>CGI-FCGI</td>
-                    </tr>
-                    <tr>
-                        <td>登录者IP:</td>
-                        <td>::1:55570</td>
-                        <td>MYSQL版本:</td>
-                        <td>5.5.40</td>
-                    </tr>
-                    <tr>
-                        <td>程序版本:</td>
-                        <td class="version">YlsatCMS 1.0 <font size="-6" color="#BBB">(20160108160215)</font></td>
-                        <td>上传文件:</td>
-                        <td>可以 <font size="-6" color="#BBB">(最大文件：2M ，表单：8M )</font></td>
-                    </tr>
-                    <tr>
-                        <td>程序编码:</td>
-                        <td>UTF-8</td>
-                        <td>当前时间:</td>
-                        <td>2016-01-08 15:50:30</td>
-                    </tr>
-                    </tbody>
-                    <tfoot>
-                    <tr></tr>
-                    </tfoot>
-                </table>
-            </div>
-            <footer>
-                <h1 class="page-header">程序信息</h1>
-                <div class="table-responsive">
-                    <table class="table table-striped table-hover">
-                        <tbody>
-                        <tr>
-                            <td><span style="display:inline-block; width:8em">版权所有</span> POWERED BY WY ALL RIGHTS
-                                RESERVED
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span style="display:inline-block;width:8em">页面加载时间</span> PROCESSED IN 1.0835s SECONDS
-                                更多模板：<a href="http://www.mycodes.net/" target="_blank">源码之家</a></td>
-                        </tr>
-                        </tbody>
-                    </table>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-lg-10 col-md-offset-2 main" id="main">
+        <div class="row">
+            <form action="test.php" method="post" class="add-article-form">
+                <div class="col-md-9">
+                    <h1 class="page-header">撰写新公告</h1>
+                    <div class="form-group">
+                        <label for="article-title" class="sr-only">标题</label>
+                        <input type="text" id="article-title" name="title" class="form-control" placeholder="在此处输入标题"
+                               required autofocus autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="article-content" class="sr-only">内容</label>
+                        <textarea id="article-content" name="content" class="form-control"></textarea>
+                    </div>
+                    <div class="add-article-box">
+                        <h2 class="add-article-box-title"><span>关键字</span></h2>
+                        <div class="add-article-box-content">
+                            <input type="text" class="form-control" placeholder="请输入关键字" name="keywords"
+                                   autocomplete="off">
+                            <span class="prompt-text">多个标签请用英文逗号,隔开。</span>
+                        </div>
+                    </div>
+                    <div class="add-article-box">
+                        <h2 class="add-article-box-title"><span>描述</span></h2>
+                        <div class="add-article-box-content">
+                            <textarea class="form-control" name="describe" autocomplete="off"></textarea>
+                            <span class="prompt-text">描述是可选的手工创建的内容总结，并可以在网页描述中使用</span>
+                        </div>
+                    </div>
                 </div>
-            </footer>
+                <div class="col-md-3">
+                    <h1 class="page-header">操作</h1>
+                    <div class="add-article-box">
+                        <h2 class="add-article-box-title"><span>发布</span></h2>
+                        <div class="add-article-box-content">
+                            <p><label>状态：</label><span class="article-status-display">未发布</span></p>
+                            <p><label>公开度：</label><input type="radio" name="visibility" value="0" checked/>公开 <input
+                                    type="radio" name="visibility" value="1"/>加密</p>
+                            <p><label>发布于：</label><span class="article-time-display"><input style="border: none;"
+                                                                                            type="datetime" name="time"
+                                                                                            value="2016-01-09 17:29:37"/></span>
+                            </p>
+                        </div>
+                        <div class="add-article-box-footer">
+                            <button class="btn btn-primary" type="submit" name="submit">发布</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
+  </div>
 </section>
 <!--个人信息模态框-->
 <div class="modal fade" id="seeUserInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -232,7 +186,7 @@
                 </button>
                 <h4 class="modal-title" id="areDevelopingModalLabel" style="cursor:default;">该功能正在日以继夜的开发中…</h4>
             </div>
-            <div class="modal-body"><img src="../../images/baoman/baoman_01.gif" alt="深思熟虑"/>
+            <div class="modal-body"><img src="images/baoman/baoman_01.gif" alt="深思熟虑"/>
                 <p style="padding:15px 15px 15px 100px; position:absolute; top:15px; cursor:default;">
                     很抱歉，程序猿正在日以继夜的开发此功能，本程序将会在以后的版本中持续完善！</p>
             </div>
@@ -255,6 +209,10 @@
 <#--尾部 BEGIN-->
 <#include "public/foot.ftl">
 <#--尾部 END-->
-
+<script>
+    $('#article-content').summernote({
+        lang: 'zh-CN'
+    });
+</script>
 </body>
 </html>

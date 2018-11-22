@@ -1,11 +1,8 @@
-package com.changex.blog.Controller;
+package com.changex.blog.controller;
 
 import com.changex.blog.config.Constant;
-import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.io.File;
 
 /**
  * @Author Xie Chenxi

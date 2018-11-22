@@ -1,104 +1,104 @@
 <#--头部 BEGIN-->
 <#include "public/head.ftl">
 <#--头部 END-->
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-lg-10 col-md-offset-2 main" id="main">
-            <h1 class="page-header">信息总览</h1>
-            <div class="row placeholders">
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <h4>文章</h4>
-                    <span class="text-muted">0 条</span></div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <h4>评论</h4>
-                    <span class="text-muted">0 条</span></div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <h4>友链</h4>
-                    <span class="text-muted">0 条</span></div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <h4>访问量</h4>
-                    <span class="text-muted">0</span></div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-lg-10 col-md-offset-2 main" id="main">
+        <div class="row">
+            <div class="col-md-5">
+                <h1 class="page-header">添加</h1>
+                <form action="/Category/add" method="post" autocomplete="off">
+                    <div class="form-group">
+                        <label for="category-name">栏目名称</label>
+                        <input type="text" id="category-name" name="name" class="form-control" placeholder="在此处输入栏目名称"
+                               required autocomplete="off">
+                        <span class="prompt-text">这将是它在站点上显示的名字。</span></div>
+                    <div class="form-group">
+                        <label for="category-alias">栏目别名</label>
+                        <input type="text" id="category-alias" name="alias" class="form-control" placeholder="在此处输入栏目别名"
+                               required autocomplete="off">
+                        <span class="prompt-text">“别名”是在URL中使用的别称，它可以令URL更美观。通常使用小写，只能包含字母，数字和连字符（-）。</span></div>
+                    <div class="form-group">
+                        <label for="category-fname">父节点</label>
+                        <select id="category-fname" class="form-control" name="fid">
+                            <option value="0" selected>无</option>
+                            <option value="1">前端技术</option>
+                            <option value="2">后端程序</option>
+                            <option value="3">管理系统</option>
+                            <option value="4">授人以渔</option>
+                            <option value="5">程序人生</option>
+                        </select>
+                        <span class="prompt-text">栏目是有层级关系的，您可以有一个“音乐”分类目录，在这个目录下可以有叫做“流行”和“古典”的子目录。</span></div>
+                    <div class="form-group">
+                        <label for="category-keywords">关键字</label>
+                        <input type="text" id="category-keywords" name="keywords" class="form-control"
+                               placeholder="在此处输入栏目关键字" autocomplete="off">
+                        <span class="prompt-text">关键字会出现在网页的keywords属性中。</span></div>
+                    <div class="form-group">
+                        <label for="category-describe">描述</label>
+                        <textarea class="form-control" id="category-describe" name="describe" rows="4"
+                                  autocomplete="off"></textarea>
+                        <span class="prompt-text">描述会出现在网页的description属性中。</span></div>
+                    <button class="btn btn-primary" type="submit" name="submit">添加新栏目</button>
+                </form>
             </div>
-            <h1 class="page-header">状态</h1>
-            <div class="table-responsive">
-                <table class="table table-striped table-hover">
-                    <tbody>
-                    <tr>
-                        <td>登录者: <span>admin</span>，这是您第 <span>13</span> 次登录</td>
-                    </tr>
-                    <tr>
-                        <td>上次登录时间: 2016-01-08 15:50:28 , 上次登录IP: ::1:55570</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <h1 class="page-header">系统信息</h1>
-            <div class="table-responsive">
-                <table class="table table-striped table-hover">
-                    <thead>
-                    <tr></tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>管理员个数:</td>
-                        <td>2 人</td>
-                        <td>服务器软件:</td>
-                        <td>Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9</td>
-                    </tr>
-                    <tr>
-                        <td>浏览器:</td>
-                        <td>Chrome47</td>
-                        <td>PHP版本:</td>
-                        <td>5.6.1</td>
-                    </tr>
-                    <tr>
-                        <td>操作系统:</td>
-                        <td>Windows 10</td>
-                        <td>PHP运行方式:</td>
-                        <td>CGI-FCGI</td>
-                    </tr>
-                    <tr>
-                        <td>登录者IP:</td>
-                        <td>::1:55570</td>
-                        <td>MYSQL版本:</td>
-                        <td>5.5.40</td>
-                    </tr>
-                    <tr>
-                        <td>程序版本:</td>
-                        <td class="version">YlsatCMS 1.0 <font size="-6" color="#BBB">(20160108160215)</font></td>
-                        <td>上传文件:</td>
-                        <td>可以 <font size="-6" color="#BBB">(最大文件：2M ，表单：8M )</font></td>
-                    </tr>
-                    <tr>
-                        <td>程序编码:</td>
-                        <td>UTF-8</td>
-                        <td>当前时间:</td>
-                        <td>2016-01-08 15:50:30</td>
-                    </tr>
-                    </tbody>
-                    <tfoot>
-                    <tr></tr>
-                    </tfoot>
-                </table>
-            </div>
-            <footer>
-                <h1 class="page-header">程序信息</h1>
+            <div class="col-md-7">
+                <h1 class="page-header">管理 <span class="badge">3</span></h1>
                 <div class="table-responsive">
                     <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th><span class="glyphicon glyphicon-paperclip"></span> <span class="visible-lg">ID</span>
+                            </th>
+                            <th><span class="glyphicon glyphicon-file"></span> <span class="visible-lg">名称</span></th>
+                            <th><span class="glyphicon glyphicon-list-alt"></span> <span class="visible-lg">别名</span>
+                            </th>
+                            <th><span class="glyphicon glyphicon-pushpin"></span> <span class="visible-lg">总数</span>
+                            </th>
+                            <th><span class="glyphicon glyphicon-pencil"></span> <span class="visible-lg">操作</span></th>
+                        </tr>
+                        </thead>
                         <tbody>
                         <tr>
-                            <td><span style="display:inline-block; width:8em">版权所有</span> POWERED BY WY ALL RIGHTS
-                                RESERVED
-                            </td>
+                            <td>1</td>
+                            <td>前端技术</td>
+                            <td>web</td>
+                            <td>125</td>
+                            <td><a href="update-category.ftl">修改</a> <a rel="1">删除</a></td>
                         </tr>
                         <tr>
-                            <td><span style="display:inline-block;width:8em">页面加载时间</span> PROCESSED IN 1.0835s SECONDS
-                                更多模板：<a href="http://www.mycodes.net/" target="_blank">源码之家</a></td>
+                            <td>2</td>
+                            <td>后端程序</td>
+                            <td>program</td>
+                            <td>185</td>
+                            <td><a href="update-category.ftl">修改</a> <a rel="2">删除</a></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>管理系统</td>
+                            <td>cms</td>
+                            <td>223</td>
+                            <td><a href="update-category.ftl">修改</a> <a rel="3">删除</a></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>授人以渔</td>
+                            <td>tutorial</td>
+                            <td>12</td>
+                            <td><a href="update-category.ftl">修改</a> <a rel="4">删除</a></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>程序人生</td>
+                            <td>code</td>
+                            <td>35</td>
+                            <td><a href="update-category.ftl">修改</a> <a rel="5">删除</a></td>
                         </tr>
                         </tbody>
                     </table>
-                </div>
-            </footer>
+                    <span class="prompt-text"><strong>注：</strong>删除一个栏目也会删除栏目下的文章和子栏目,请谨慎删除!</span></div>
+            </div>
         </div>
     </div>
+  </div>
 </section>
 <!--个人信息模态框-->
 <div class="modal fade" id="seeUserInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -232,7 +232,7 @@
                 </button>
                 <h4 class="modal-title" id="areDevelopingModalLabel" style="cursor:default;">该功能正在日以继夜的开发中…</h4>
             </div>
-            <div class="modal-body"><img src="../../images/baoman/baoman_01.gif" alt="深思熟虑"/>
+            <div class="modal-body"><img src="images/baoman/baoman_01.gif" alt="深思熟虑"/>
                 <p style="padding:15px 15px 15px 100px; position:absolute; top:15px; cursor:default;">
                     很抱歉，程序猿正在日以继夜的开发此功能，本程序将会在以后的版本中持续完善！</p>
             </div>
@@ -255,6 +255,29 @@
 <#--尾部 BEGIN-->
 <#include "public/foot.ftl">
 <#--尾部 END-->
-
+<script>
+    //是否确认删除
+    $(function () {
+        $("#main table tbody tr td a").click(function () {
+            var name = $(this);
+            var id = name.attr("rel"); //对应id
+            if (event.srcElement.outerText === "删除") {
+                if (window.confirm("此操作不可逆，是否确认？")) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/Category/delete",
+                        data: "id=" + id,
+                        cache: false, //不缓存此页面
+                        success: function (data) {
+                            window.location.reload();
+                        }
+                    });
+                }
+                ;
+            }
+            ;
+        });
+    });
+</script>
 </body>
 </html>

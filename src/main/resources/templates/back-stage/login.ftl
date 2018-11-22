@@ -38,7 +38,9 @@
     <p><a href="index.ftl" data-toggle="tooltip" data-placement="left" title="不知道自己在哪?">回到后台 →</a></p>
   </div>
 </div>
-<script src="js/bootstrap.min.js"></script> 
+<#--尾部 BEGIN-->
+<#include "public/foot.ftl">
+<#--尾部 END-->
 <script>
 $('[data-toggle="tooltip"]').tooltip();
 window.oncontextmenu = function(){

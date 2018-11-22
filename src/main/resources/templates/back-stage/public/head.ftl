@@ -24,7 +24,7 @@
                             data-target="#bs-example-navbar-collapse-1" aria-expanded="false"><span
                             class="sr-only">切换导航</span> <span class="icon-bar"></span> <span class="icon-bar"></span>
                         <span class="icon-bar"></span></button>
-                    <a class="navbar-brand" href="/">YlsatCMS</a></div>
+                    <a class="navbar-brand" href="/">CHANGEX</a></div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="">消息 <span class="badge">1</span></a></li>
@@ -54,10 +54,10 @@
     <div class="row">
         <aside class="col-sm-3 col-md-2 col-lg-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="active"><a href="index.ftl">报告</a></li>
+                <li class="active"><a href="index.html">报告</a></li>
             </ul>
             <ul class="nav nav-sidebar">
-                <li><a href="article.html">文章</a></li>
+                <li class="active"><a href="article.html">文章</a></li>
                 <li><a href="notice.html">公告</a></li>
                 <li><a href="comment.html">评论</a></li>
                 <li><a data-toggle="tooltip" data-placement="bottom" title="网站暂无留言功能">留言</a></li>
@@ -83,7 +83,7 @@
                     </ul>
                 </li>
                 <li><a class="dropdown-toggle" id="settingMenu" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false">设置</a>
+                       aria-expanded="false"  href="setting.html" >设置</a>
                     <ul class="dropdown-menu" aria-labelledby="settingMenu">
                         <li><a href="setting.html">基本设置</a></li>
                         <li><a href="readset.html">阅读设置</a></li>
