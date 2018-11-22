@@ -1,4 +1,4 @@
-/*
+/*test
 package com.changex.blog.tools;
 
 import java.util.Collection;
