@@ -5,12 +5,14 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CHANGEX-SITE-BACK</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>CHANGEX-SITE</title>
+    <link rel="shortcut icon" href="../images/omikron.png" >
     <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
     <link rel="apple-touch-icon-precomposed" href="../../images/icon/icon.png">
-    <link rel="shortcut icon" href="../../images/icon/favicon.ico">
     <script type='text/javascript' src='../../js/jquery.min.js'></script>
 </head>
 
