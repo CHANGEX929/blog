@@ -1,13 +1,11 @@
 package com.changex.blog.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.changex.blog.pojo.TSysUser;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
 
-import java.util.List;
-
-@Mapper
-public interface UserMapper {
-    @Select("select * from tb_person")
-    List<TSysUser> getUsers();
+/**
+ * @Author Xie Chenxi
+ * @Date 2018/11/21 20:18
+ */
+public interface UserMapper extends BaseMapper<TSysUser> {
 }
