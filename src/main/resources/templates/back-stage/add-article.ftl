@@ -15,56 +15,9 @@
                             <label for="article-content" class="sr-only">内容</label>
                             <script id="article-content" name="content" type="text/plain"></script>
                         </div>
-                        <div class="add-article-box">
-                            <h2 class="add-article-box-title"><span>关键字</span></h2>
-                            <div class="add-article-box-content">
-                                <input type="text" class="form-control" placeholder="请输入关键字" name="keywords"
-                                       autocomplete="off">
-                                <span class="prompt-text">多个标签请用英文逗号,隔开。</span>
-                            </div>
-                        </div>
-                        <div class="add-article-box">
-                            <h2 class="add-article-box-title"><span>描述</span></h2>
-                            <div class="add-article-box-content">
-                                <textarea class="form-control" name="describe" autocomplete="off"></textarea>
-                                <span class="prompt-text">描述是可选的手工创建的内容总结，并可以在网页描述中使用</span>
-                            </div>
-                        </div>
                     </div>
                     <div class="col-md-3">
                         <h1 class="page-header">操作</h1>
-                        <div class="add-article-box">
-                            <h2 class="add-article-box-title"><span>栏目</span></h2>
-                            <div class="add-article-box-content">
-                                <ul class="category-list">
-                                    <li>
-                                        <label>
-                                            <input name="category" type="radio" value="1" checked>
-                                            这是栏目 <em class="hidden-md">( 栏目ID: <span>1</span> )</em></label>
-                                    </li>
-                                    <li>
-                                        <label>
-                                            <input name="category" type="radio" value="2">
-                                            这是栏目 <em class="hidden-md">( 栏目ID: <span>2</span> )</em></label>
-                                    </li>
-                                    <li>
-                                        <label>
-                                            <input name="category" type="radio" value="3">
-                                            这是栏目 <em class="hidden-md">( 栏目ID: <span>3</span> )</em></label>
-                                    </li>
-                                    <li>
-                                        <label>
-                                            <input name="category" type="radio" value="4">
-                                            这是栏目 <em class="hidden-md">( 栏目ID: <span>4</span> )</em></label>
-                                    </li>
-                                    <li>
-                                        <label>
-                                            <input name="category" type="radio" value="5">
-                                            这是栏目 <em class="hidden-md">( 栏目ID: <span>5</span> )</em></label>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
                         <div class="add-article-box">
                             <h2 class="add-article-box-title"><span>标签</span></h2>
                             <div class="add-article-box-content">

@@ -5,7 +5,7 @@ import com.changex.blog.pojo.TSysUser;
  * @Author Xie Chenxi
  * @Date 2018/11/21 20:18
  */
-public interface UserService {
+public interface TSysUserService {
 
      TSysUser getUser();
 

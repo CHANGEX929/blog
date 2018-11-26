@@ -1,14 +1,13 @@
-/*   
- * Copyright (c) 2014-2020 CareLinker Ltd. All Rights Reserved.   
- *   
- * This software is the confidential and proprietary information of   
- * CareLinker. You shall not disclose such Confidential Information   
- * and shall use it only in accordance with the terms of the agreements   
- * you entered into with CareLinker.   
- *   
+/*
+ * Copyright (c) 2014-2020 CareLinker Ltd. All Rights Reserved.
+ *
+ * This software is the confidential and proprietary information of
+ * CareLinker. You shall not disclose such Confidential Information
+ * and shall use it only in accordance with the terms of the agreements
+ * you entered into with CareLinker.
+ *
  */
 package com.changex.blog.core.resource.result;
-
 
 
 import java.util.List;
@@ -28,7 +27,7 @@ public class ResponseResultFactory {
         return new ResponseResult();
     }
 
-    public static IdResponseResult getId(String id) {
+    public static IdResponseResult getId(Integer id) {
         return new IdResponseResult(id);
     }
 

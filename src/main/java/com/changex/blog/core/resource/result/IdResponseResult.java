@@ -8,7 +8,7 @@ package com.changex.blog.core.resource.result;/**
  */
 public class IdResponseResult extends ResponseResult {
 
-    private String id;
+    private Integer id;
 
     public IdResponseResult() {
 
@@ -16,18 +16,17 @@ public class IdResponseResult extends ResponseResult {
 
     public IdResponseResult(ResponseResult responseResult) {
         super(responseResult);
-        this.id = "";
     }
 
-    public IdResponseResult(String id) {
+    public IdResponseResult(Integer id) {
         this.id = id;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 }
