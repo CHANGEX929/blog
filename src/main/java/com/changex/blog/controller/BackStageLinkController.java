@@ -5,17 +5,32 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @Author Xie Chenxi
  * @Date 2018/11/21 20:18
  */
 @Controller
-@RequestMapping("/back")
+@RequestMapping({"/back"})
 public class BackStageLinkController {
 
+    @GetMapping("")
+    public String index() {
+
+        return "redirect:back/index.html?report";
+    }
+
     @GetMapping("/index.html")
-    public String welcome() {
-        return Constant.BACK_DESK + "index";
+    public String welcome(HttpServletRequest request) {
+
+        if (request.getParameterMap().keySet().contains("report")) {
+
+            return Constant.BACK_DESK + "index";
+        } else {
+
+            return "redirect:index.html?report";
+        }
     }
 
     @GetMapping("/login.html")
