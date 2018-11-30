@@ -119,7 +119,7 @@ body, input, button, textarea, select {
 /*定义字体*/
 @font-face {
 	font-family: 'TaurusNormal';
-	src: url('../fonts/TaurusNormal.woff') format('woff'), url('../fonts/TaurusNormal.ttf') format('truetype'), url('../fonts/TaurusNormal.svg') format('svg');
+	src: url('../css/fonts/TaurusNormal.woff') format('woff'), url('../css/fonts/TaurusNormal.ttf') format('truetype'), url('../css/fonts/TaurusNormal.svg') format('svg');
 }
 /*禁止文字选中*/
 .user-select {

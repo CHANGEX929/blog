@@ -217,7 +217,7 @@
                 </button>
                 <h4 class="modal-title" id="WeChatModalLabel" style="cursor:default;">微信扫一扫</h4>
             </div>
-            <div class="modal-body" style="text-align:center"><img src="images/weixin.jpg" alt=""
+            <div class="modal-body" style="text-align:center"><img src="../images/weixin.jpg" alt=""
                                                                    style="cursor:pointer"/></div>
         </div>
     </div>

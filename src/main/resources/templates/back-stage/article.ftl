@@ -5,7 +5,7 @@
         <form action="/Article/checkAll" method="post">
             <h1 class="page-header">操作</h1>
             <ol class="breadcrumb">
-                <li><a href="add-article.html">增加文章</a></li>
+                <li><a href="add-article.html?article">增加文章</a></li>
             </ol>
             <h1 class="page-header">管理 <span class="badge">7</span></h1>
             <div class="table-responsive">
@@ -234,7 +234,7 @@
                 </button>
                 <h4 class="modal-title" id="WeChatModalLabel" style="cursor:default;">微信扫一扫</h4>
             </div>
-            <div class="modal-body" style="text-align:center"><img src="images/weixin.jpg" alt=""
+            <div class="modal-body" style="text-align:center"><img src="../images/weixin.jpg" alt=""
                                                                    style="cursor:pointer"/></div>
         </div>
     </div>
@@ -249,7 +249,7 @@
                 </button>
                 <h4 class="modal-title" id="areDevelopingModalLabel" style="cursor:default;">该功能正在日以继夜的开发中…</h4>
             </div>
-            <div class="modal-body"><img src="images/baoman/baoman_01.gif" alt="深思熟虑"/>
+            <div class="modal-body"><img src="../images/baoman/baoman_01.gif" alt="深思熟虑"/>
                 <p style="padding:15px 15px 15px 100px; position:absolute; top:15px; cursor:default;">
                     很抱歉，程序猿正在日以继夜的开发此功能，本程序将会在以后的版本中持续完善！</p>
             </div>
