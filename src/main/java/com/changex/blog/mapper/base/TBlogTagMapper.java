@@ -1,7 +1,7 @@
 package com.changex.blog.mapper.base;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.changex.blog.pojo.TBlogTag;
+import com.changex.blog.core.pojo.TBlogTag;
 
 /**
  * @Author Xie Chenxi

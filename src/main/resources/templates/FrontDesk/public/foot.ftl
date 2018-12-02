@@ -28,7 +28,7 @@
         Copyright&copy;2018. Design by
         <a href="javascript:;">CHANGEX</a>
     </div>
-    <script type='text/javascript' src='js/jquery.min.js'></script>
+    <script type='text/javascript' src='js/jquery-3.3.1.min.js'></script>
     <script type='text/javascript' src='js/plugins.js'></script>
     <script type='text/javascript' src='js/script.js'></script>
     <script type='text/javascript' src='js/particles.js'></script>

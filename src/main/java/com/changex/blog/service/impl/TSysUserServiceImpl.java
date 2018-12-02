@@ -2,7 +2,7 @@ package com.changex.blog.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.changex.blog.mapper.base.TSysUserMapper;
-import com.changex.blog.pojo.TSysUser;
+import com.changex.blog.core.pojo.TSysUser;
 import com.changex.blog.service.TSysUserService;
 import org.springframework.stereotype.Service;
 /**

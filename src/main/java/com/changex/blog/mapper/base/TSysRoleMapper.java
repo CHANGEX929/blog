@@ -1,7 +1,7 @@
 package com.changex.blog.mapper.base;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.changex.blog.pojo.TSysRole;
+import com.changex.blog.core.pojo.TSysRole;
 
 /**
  * @Author Xie Chenxi

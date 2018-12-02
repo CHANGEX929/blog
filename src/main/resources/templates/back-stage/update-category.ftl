@@ -14,7 +14,7 @@
                 <input type="text" id="category-alias" name="alias" value="web" class="form-control"
                        placeholder="在此处输入栏目别名" required autocomplete="off">
                 <span class="prompt-text">“别名”是在URL中使用的别称，它可以令URL更美观。通常使用小写，只能包含字母，数字和连字符（-）。</span></div>
-            <div class="form-group">
+<#--            <div class="form-group">
                 <label for="category-fname">父节点</label>
                 <select id="category-fname" class="form-control" name="fid">
                     <option value="0" selected>无</option>
@@ -33,7 +33,7 @@
             <div class="form-group">
                 <label for="category-describe">描述</label>
                 <textarea class="form-control" id="category-describe" name="describe" rows="4" autocomplete="off">这是栏目的描述这是栏目的描述这是栏目的描述这是栏目的描述</textarea>
-                <span class="prompt-text">描述会出现在网页的description属性中。</span></div>
+                <span class="prompt-text">描述会出现在网页的description属性中。</span></div>-->
             <button class="btn btn-primary" type="submit" name="submit">更新</button>
         </form>
     </div>

@@ -1,4 +1,4 @@
-package com.changex.blog.pojo;
+package com.changex.blog.core.pojo;
 
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -9,13 +9,19 @@ import java.io.Serializable;
 
 /**
  * @Author Xie Chenxi
- * @Date 2018/11/18 4:38
+ * @Date 2018/11/18 4:39
  */
 @Data
-@TableName(value = "sys_role")
-public class TSysRole extends Model<TSysRole> {
+@TableName(value = "blog_article")
+public class TBlogArticle extends Model<TBlogArticle> {
     private Integer id;
-    private String name;
+    private String title;
+    private Integer authorId;
+    private Integer readNum;
+    private String content;
+    private String picUrl;
+    private Integer tagId;
+    private Integer isSecret;
     private String createDate;
     private String updateDate;
     @TableLogic

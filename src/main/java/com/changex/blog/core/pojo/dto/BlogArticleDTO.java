@@ -1,4 +1,4 @@
-package com.changex.blog.pojo.dto;
+package com.changex.blog.core.pojo.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

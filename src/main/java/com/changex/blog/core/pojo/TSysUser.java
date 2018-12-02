@@ -1,4 +1,4 @@
-package com.changex.blog.pojo;
+package com.changex.blog.core.pojo;
 
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -7,20 +7,12 @@ import lombok.Data;
 
 import java.io.Serializable;
 
-/**
- * @Author Xie Chenxi
- * @Date 2018/11/18 4:43
- */
 @Data
-@TableName(value = "blog_comment")
-public class TBlogComment extends Model<TBlogComment> {
+@TableName(value = "sys_user")
+public class TSysUser extends Model<TSysUser> {
     private Integer id;
-    private Integer articleId;
-    private Integer type;
-    private String content;
-    private String nickName;
-    private String email;
-    private String webUrl;
+    private String userName;
+    private String password;
     private String createDate;
     private String updateDate;
     @TableLogic

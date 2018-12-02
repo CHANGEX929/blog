@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
     <link rel="apple-touch-icon-precomposed" href="../../images/icon/icon.png">
-    <script type='text/javascript' src='../../js/jquery.min.js'></script>
+    <script type='text/javascript' src='../../js/jquery-3.3.1.min.js'></script>
 </head>
 
 <body class="user-select">

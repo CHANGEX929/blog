@@ -115,7 +115,7 @@ server:
 
 mybatis-plus:
   mapper-locations:  classpath*:/mapper/*Mapper.xml
-  type-aliases-package: com.changex.blog.pojo
+  type-aliases-package: com.changex.blog.core.pojo
   configuration:
     map-underscore-to-camel-case: true
     cache-enabled: false

@@ -1,6 +1,6 @@
 package com.changex.blog.service;
 
-import com.changex.blog.pojo.dto.BlogArticleDTO;
+import com.changex.blog.core.pojo.dto.BlogArticleDTO;
 
 /**
  * @Author Xie Chenxi
