@@ -18,7 +18,8 @@
                         <div class="add-article-box">
                             <h2 class="add-article-box-title"><span>关键字</span></h2>
                             <div class="add-article-box-content">
-                                <input type="text" class="form-control" placeholder="请输入关键字" name="keywords" autocomplete="off">
+                                <input type="text" class="form-control" placeholder="请输入关键字" name="keywords"
+                                       autocomplete="off">
                                 <span class="prompt-text">多个标签请用英文逗号,隔开。</span>
                             </div>
                         </div>
@@ -35,8 +36,8 @@
                         <div class="add-article-box">
                             <h2 class="add-article-box-title"><span>栏目</span></h2>
                             <div class="add-article-box-content">
-                                <ul class="category-list">
-                                    <li>
+                                <ul class="category-list" id="category-list">
+                                <#-- <li>
                                         <label>
                                             <input name="category" type="radio" value="1" checked>
                                             这是栏目 <em class="hidden-md">( 栏目ID: <span>1</span> )</em></label>
@@ -60,7 +61,7 @@
                                         <label>
                                             <input name="category" type="radio" value="5">
                                             这是栏目 <em class="hidden-md">( 栏目ID: <span>5</span> )</em></label>
-                                    </li>
+                                    </li>-->
                                 </ul>
                             </div>
                         </div>
@@ -262,8 +263,7 @@
 <#--尾部 END-->
 
 
-<script
-        type="text/javascript">
+<script type="text/javascript">
     var editor = UE.getEditor('article-content');
     window.onresize = function () {
         window.location.reload();
@@ -301,6 +301,22 @@
         var myFiles = _uploadEditor.getDialog("attachment");
         myFiles.open();
     }
+
+    //加载栏目列表
+    getCategoryList({"authorId": 1}, function (result) {
+        var str = "";
+        for (var i = 0; i < result.dataList.length; i++) {
+
+            str += "<li>" +
+                    "        <label>" +
+                    "        <input name=\"category\" type=\"radio\" value=\"2\">"
+                    + result.dataList[i].name + " <em class=\"hidden-md\">( 栏目ID: <span>" + result.dataList[i].id + "</span> )</em></label>" +
+                    "</li>"
+        }
+        $("#category-list").html(str);
+    })
+
+
 </script>
 </body>
 </html>

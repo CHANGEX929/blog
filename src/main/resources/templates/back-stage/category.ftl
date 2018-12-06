@@ -42,7 +42,7 @@
                 </form>
             </div>
             <div class="col-md-7">
-                <h1 class="page-header">管理 <span class="badge">3</span></h1>
+                <h1 class="page-header">管理 <span class="badge" id="categoryCount">3</span></h1>
                 <div class="table-responsive">
                     <table class="table table-striped table-hover">
                         <thead>
@@ -58,41 +58,7 @@
                         </tr>
                         </thead>
                         <tbody id="categoryList">
-                        <tr>
-                            <td>1</td>
-                            <td>前端技术</td>
-                            <td>web</td>
-                            <td>125</td>
-                            <td><a href="/back/update-category.html?category">修改</a> <a rel="1">删除</a></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>后端程序</td>
-                            <td>program</td>
-                            <td>185</td>
-                            <td><a href="update-category.ftl">修改</a> <a rel="2">删除</a></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>管理系统</td>
-                            <td>cms</td>
-                            <td>223</td>
-                            <td><a href="update-category.ftl">修改</a> <a rel="3">删除</a></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>授人以渔</td>
-                            <td>tutorial</td>
-                            <td>12</td>
-                            <td><a href="update-category.ftl">修改</a> <a rel="4">删除</a></td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>程序人生</td>
-                            <td>code</td>
-                            <td>35</td>
-                            <td><a href="update-category.ftl">修改</a> <a rel="5">删除</a></td>
-                        </tr>
+
                         </tbody>
                     </table>
                     <span class="prompt-text"><strong>注：</strong>删除一个栏目也会删除栏目下的文章和子栏目,请谨慎删除!</span></div>
@@ -129,8 +95,26 @@
             ;
         });
 
+        //显示栏目
+        getCategoryList({"authorId": 1}, function (result) {
 
-        showCategoryList(1);
+            var str = ""
+
+            for (var i = 0; i < result.dataList.length; i++) {
+                str += " <tr>" +
+                        "<td>" + result.dataList[i].id + "</td>" +
+                        "<td>" + result.dataList[i].name + "</td>" +
+                        "<td>" + result.dataList[i].alias + "</td>" +
+                        "<td>0</td>" +
+                        "<td><a href=\"update-category.ftl\">修改</a> <a rel=\"5\">删除</a></td>" +
+                        "</tr>";
+            }
+
+            $("#categoryList").html(str);
+            $("#categoryCount").html(result.dataList.length);
+        });
+
+
         //新增栏目
         $("#categoryForm").submit(function () {
 
@@ -161,38 +145,6 @@
                 }
             });
         });
-
-        function showCategoryList(authorId) {
-            $.ajax({
-                url: baseUrl + "/byAuthorId",
-                type: "GET",
-                data: {"authorId": authorId},
-                // contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                beforeSend: function () {
-                    $("#programBar").modal("show");
-                },
-                success: function (result) {
-                    var str = ""
-                    for (var i = 0; i < result.dataList.length; i++) {
-                        str += " <tr>" +
-                                "<td>" + result.dataList[i].id + "</td>" +
-                                "<td>" + result.dataList[i].name + "</td>" +
-                                "<td>" + result.dataList[i].alias + "</td>" +
-                                "<td>0</td>" +
-                                "<td><a href=\"update-category.ftl\">修改</a> <a rel=\"5\">删除</a></td>" +
-                                "</tr>";
-                    }
-                    $("#categoryList").html(str);
-                },
-                error: function () {
-                    alert("系统繁忙");
-                },
-                complete: function () {
-                    $("#programBar").modal("hide");
-                }
-            });
-        }
     })
 </script>
 </body>
