@@ -106,13 +106,25 @@
                         "<td>" + result.dataList[i].name + "</td>" +
                         "<td>" + result.dataList[i].alias + "</td>" +
                         "<td>0</td>" +
-                        "<td><a href=\"update-category.ftl\">修改</a> <a rel=\"5\">删除</a></td>" +
+                        "<td><a href=\"update-category.html?category" +
+                        "&id=" + result.dataList[i].id + "&name=" + result.dataList[i].name + "&alias=" + result.dataList[i].alias +
+                        "\">修改</a> <a rel=\"5\" categoryId = '" + result.dataList[i].id + "' class = 'deleteCategoryBtn'>删除</a></td>" +
                         "</tr>";
             }
 
             $("#categoryList").html(str);
             $("#categoryCount").html(result.dataList.length);
         });
+
+        $("#categoryList").on("click", ".deleteCategoryBtn", function (e) {
+            var id = $(e.target).attr("categoryId");
+            if (confirm("确认？")) {
+                deleteCategory({"id": id}, function (result) {
+                    alert("删除成功");
+                    window.location.reload();
+                })
+            }
+        })
 
 
         //新增栏目

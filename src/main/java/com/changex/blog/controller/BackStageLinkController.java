@@ -18,7 +18,7 @@ public class BackStageLinkController {
     @GetMapping("")
     public String index() {
 
-        return "redirect:back/index.html?report";
+        return "redirect:back/article.html?article";
     }
 
     @GetMapping("/index.html")

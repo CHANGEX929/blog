@@ -22,10 +22,10 @@
             </style>
             <section class="post_content">
                 <header class="post_header">
-                    <h1 class="post_title">给大家介绍一下</h1>
+                    <h1 class="post_title" id="title"></h1>
                 </header>
-                <div class="post-body js-gallery">
-                    <p>这几天被朋友圈的“男友体”刷屏了，吃瓜群众硬是要跟风才感觉自己跟得上潮流吗？然而媒体却猫在一边看着热点流量刷刷刷变现，粉丝一边被卖了还一边帮别人数钱，That so naive，who tm
+                <div class="post-body js-gallery" id="content">
+                <#-- <p>这几天被朋友圈的“男友体”刷屏了，吃瓜群众硬是要跟风才感觉自己跟得上潮流吗？然而媒体却猫在一边看着热点流量刷刷刷变现，粉丝一边被卖了还一边帮别人数钱，That so naive，who tm
                         care ！</p>
                     <p>现在的明星的影响力足以影响国内娱乐圈的"半壁江山"，发条微博，新浪都恐慌好几天，来来来，蹭个热点给大家介绍一下我的女朋友。</p>
                     <p>单身狗哪有女朋友，汪！汪！哈哈，（翻白眼）</p>
@@ -60,17 +60,18 @@
                         Dcras 也是！我郑重的在这立下个 Flag ，Pjax 不完成我是绝对不会上线的，所以有可能遥遥无期，给我的点时间（ Maybe next year ），我会令它变得更 perfect ！
                     </p>
                     <p>当然 Dcras 也是一款 wordpress 付费主题，将会应用到更多 WordPress 支持的强大功能，模版更丰富，至于大家关系的价格问题，我会说：只有 Yarn
-                        的用户可以向我“讨价还价”！其他一律原价！这是对我 Yarn 用户承诺最真诚的福利。</p>
+                        的用户可以向我“讨价还价”！其他一律原价！这是对我 Yarn 用户承诺最真诚的福利。</p>-->
                 </div>
                 <div class="meta split split--responsive cf">
                     <div class="split__title">
-                        <time datetime="2017-10-02 01:44">2017/10/02</time>
-                        <span class=""><a href="" rel="tag">主题</a><a href="" rel="tag">日常</a><a href="" rel="tag">更新</a> </span>
+                        <time datetime="2017-10-02 01:44" id="createDate"></time>
+                        <span class=""><a href="javascript:;" rel="tag" id="keyWord"></a><a href="javascript:;"
+                                                                                            rel="tag" id="tagName"></a></span>
                     </div>
-                    <div id="social-share"><span class="entypo-share"><i class="iconfont">&#xe614;</i>分享</span></div>
-                    <div class="slide">
-                        <a class="btn-slide" title="switch down"><i class="iconfont">&#xe615;</i>折叠评论区</a>
-                    </div>
+                <#--              <div id="social-share"><span class="entypo-share"><i class="iconfont">&#xe614;</i>分享</span></div>
+                              <div class="slide">
+                                  <a class="btn-slide" title="switch down"><i class="iconfont">&#xe615;</i>折叠评论区</a>
+                              </div>-->
                 </div>
             </section>
         </article>
@@ -94,7 +95,7 @@
             </li>
         </ul>
     </div>
-    <div id="panel">
+<#--    <div id="panel">
         <div class="comment-area">
             <section class="comments">
                 <div class="comments-main">
@@ -135,7 +136,7 @@
                                 </div>
                             </div>
                         </li>
-                        <!-- #comment-## -->
+                        <!-- #comment-## &ndash;&gt;
                     </ul>
                     <nav id="comments-navi">
                         <a class="prev page-numbers" href="">
@@ -181,7 +182,7 @@
                 </div>
             </section>
         </div>
-    </div>
+    </div>-->
     <svg id="dwTriangleColor" width="100%" height="40" viewBox="0 0 100 102" preserveAspectRatio="none">
         <path d="M0 0 L50 100 L100 0 Z"></path>
     </svg>
@@ -191,27 +192,9 @@
 
 <div class="p-header">
     <figure class="p-image"
-            style="background-image: url(images/47fb3c_9afed6c259f94589881bd55376206366mv2_d_3840_5784_s_4_2.jpg);"></figure>
+            style="background-image: url(images/2.jpg);"></figure>
 </div>
-<div class="navpost-part">
-    <div id="NextPrevPosts">
-        <div class="prev" data-aos="slide-right" data-aos-delay="1.5s">
-            <div class="arrow"><i class="iconfont">&#xe625;</i></div>
-            <div class="preview">
-                <div class="pull-left featuredImg"
-                     style="background-image:url('images/97a354cb9519f97e84139f26017386026b3fd7f517b96-DCDbdE-250x250.jpeg');"></div>
-                <a class="pull-left preview-content bold" href="#"><span>《别哭妈妈》</span></a>
-            </div>
-        </div>
-        <div class="next" data-aos="slide-left" data-aos-delay="1.5s">
-            <div class="arrow"><i class="iconfont">&#xe623;</i></div>
-            <div class="preview">
-              <#-- &lt;#&ndash; <div class="pull-right featuredImg" style="background-image:url('images/no-image.png');"></div>&ndash;&gt;-->
-                <a class="pull-right preview-content bold" href="#"><span>重构图像样式测试</span></a>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <#--尾部-->
 		<#include "public/foot.ftl">
@@ -224,6 +207,21 @@
             document.getElementById("NextPrevPosts").style.display = "block"
         }
     }
+
+    $(function () {
+        getArticleById({"id": getQueryString("id")}, function (result) {
+
+            var createDate = result.data.createDate
+            createDate = String(createDate).split("T")[0];
+
+            $("#title").html(result.data.title);
+            $("#content").html(result.data.content);
+            $("#keyWord").html(result.data.keyWord);
+            $("#createDate").html(createDate);
+            $("#tagName").html(result.data.tagName);
+
+        })
+    })
 </script>
 <script type='text/javascript' src='js/prism.js'></script>
 <script type='text/javascript' src='js/gravatar.js'></script>

@@ -1,6 +1,7 @@
 <footer id="footer" class="overlay animated from-top">
     <div class="decor-wrapper">
-        <svg id="footer-decor" class="decor top" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <svg id="footer-decor" class="decor top" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100"
+             preserveAspectRatio="none">
             <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"></path>
             <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"></path>
             <path class="medium left" d="M0 0 L50 50 L0 66.6" fill="rgba(255,255,255, .3)"></path>
@@ -28,9 +29,13 @@
         Copyright&copy;2018. Design by
         <a href="javascript:;">CHANGEX</a>
     </div>
-    <script type='text/javascript' src='js/jquery-3.3.1.min.js'></script>
-    <script type='text/javascript' src='js/plugins.js'></script>
-    <script type='text/javascript' src='js/script.js'></script>
-    <script type='text/javascript' src='js/particles.js'></script>
-    <script type='text/javascript' src='js/aos.js'></script>
+    <script type='text/javascript' src='../../js/jquery-3.3.1.min.js'></script>
+    <script type='text/javascript' src='../../js/plugins.js'></script>
+    <script type='text/javascript' src='../../js/script.js'></script>
+    <script type='text/javascript' src='../../js/particles.js'></script>
+    <script type='text/javascript' src='../../js/aos.js'></script>
+    <script src="../../js/jquery.shCircleLoader.js" type="text/javascript"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../js/blog/datalist.js"></script>
+    <#include "../../back-stage/public/programBar.ftl">
 </footer>

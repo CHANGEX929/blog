@@ -31,9 +31,6 @@ public class TBlogTagServiceImpl extends ServiceImpl<TBlogTagMapper, TBlogTag> i
         blogTag.setAuthorId(1);
         blogTag.setName(blogTagDTO.getName());
         blogTag.setAlias(blogTagDTO.getAlias());
-        blogTag.setCreateDate(DateUtils.getDateTime());
-        blogTag.setUpdateDate(DateUtils.getDateTime());
-        blogTag.setIsValid(1);
         super.save(blogTag);
         return blogTag.getId();
     }
@@ -43,7 +40,6 @@ public class TBlogTagServiceImpl extends ServiceImpl<TBlogTagMapper, TBlogTag> i
         TBlogTag blogTag = super.getById(blogTagDTO.getId());
         blogTag.setName(blogTagDTO.getName());
         blogTag.setAlias(blogTagDTO.getAlias());
-        blogTag.setUpdateDate(DateUtils.getDateTime());
         return super.saveOrUpdate(blogTag);
     }
 

@@ -1,13 +1,15 @@
-<div class="Yarn_Background" style="background-image: url( images/1.jpg);"></div>
+<div class="Yarn_Background" style="background-image: url( images/2.jpg);"></div>
 <form class="js-search search-form search-form--modal" method="get" action="search.html" role="search">
     <div class="search-form__inner">
         <div>
             <div id="search-container" class="ajax_search">
                 <form method="get" id="searchform" action="">
-                    <div class="filter_container"><input type="text" value="" autocomplete="off" placeholder="Type then select or enter" name="s" id="search-input" />
+                    <div class="filter_container"><input type="text" value="" autocomplete="off"
+                                                         placeholder="Type then select or enter" name="s"
+                                                         id="search-input"/>
                         <ul id="search_filtered" class="search_filtered"></ul>
                     </div>
-                    <input type="submit" name="submit" id="searchsubmit" class="searchsubmit" value="" />
+                    <input type="submit" name="submit" id="searchsubmit" class="searchsubmit" value=""/>
                 </form>
             </div>
         </div>
@@ -25,35 +27,37 @@
                 <div id="main-menu" class="main-menu-container">
                     <div class="menu-menu-container">
                         <ul id="primary-menu" class="menu">
-                            <li id="menu-item-17" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-17">
+                            <li id="menu-item-17"
+                                class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-17">
                                 <a href="index.html">首页</a>
                             </li>
-                            <li id="menu-item-173" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-173">
-                                <a href="update.html">更新</a>
+                        <#--        <li id="menu-item-173" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-173">
+                                    <a href="update.html">更新</a>
+                                </li>-->
+                            <li id="menu-item-78"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78">
+                                <a href="link.html">分类</a>
                             </li>
-                            <li id="menu-item-78" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78">
-                                <a href="link.html">链接</a>
-                            </li>
-                            <li id="menu-item-252" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-252">
-                                <a href="archives.html">归档</a>
-                                <ul class="sub-menu">
-                                    <li id="menu-item-165" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-165">
-                                        <a href="">theme</a>
-                                    </li>
-                                    <li id="menu-item-163" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-163">
-                                        <a href="">Happen</a>
-                                    </li>
-                                    <li id="menu-item-924" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-924">
-                                        <a href="">WeWork</a>
-                                    </li>
-                                    <li id="menu-item-164" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-164">
-                                        <a href="">WordPress</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li id="menu-item-57" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-57">
-                                <a href="gustbook.html">留言</a>
-                            </li>
+                        <#--        <li id="menu-item-252" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-252">
+                                    <a href="archives.html">归档</a>
+                                    <ul class="sub-menu">
+                                        <li id="menu-item-165" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-165">
+                                            <a href="">theme</a>
+                                        </li>
+                                        <li id="menu-item-163" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-163">
+                                            <a href="">Happen</a>
+                                        </li>
+                                        <li id="menu-item-924" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-924">
+                                            <a href="">WeWork</a>
+                                        </li>
+                                        <li id="menu-item-164" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-164">
+                                            <a href="">WordPress</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li id="menu-item-57" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-57">
+                                    <a href="gustbook.html">留言</a>
+                                </li>-->
                         </ul>
                     </div>
                 </div>
@@ -69,7 +73,7 @@
     <div class="site-branding text-center">
         <a href="">
             <figure>
-                <img class="custom-logo avatar" src="images/omikron.png" />
+                <img class="custom-logo avatar" src="images/omikron.png"/>
             </figure>
         </a>
         <h3 class="blog-description"><p>CHANGEX</p></h3>
@@ -80,7 +84,8 @@
     </div>
     <div class="animation-header">
         <div class="decor-wrapper">
-            <svg id="header-decor" class="decor bottom" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <svg id="header-decor" class="decor bottom" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                 viewBox="0 0 100 100" preserveAspectRatio="none">
                 <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"></path>
                 <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"></path>
                 <path class="medium left" d="M0 100 L50 50 L0 33.3" fill="rgba(255,255,255, .3)"></path>

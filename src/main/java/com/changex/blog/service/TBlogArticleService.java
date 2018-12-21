@@ -1,6 +1,9 @@
 package com.changex.blog.service;
 
 import com.changex.blog.core.pojo.dto.BlogArticleDTO;
+import com.changex.blog.core.pojo.vo.BlogArticleVo;
+
+import java.util.List;
 
 /**
  * @Author Xie Chenxi
@@ -8,4 +11,12 @@ import com.changex.blog.core.pojo.dto.BlogArticleDTO;
  */
 public interface TBlogArticleService {
     Integer save(BlogArticleDTO articleDTO);
+
+    List<BlogArticleVo> listByAuthorId(BlogArticleDTO articleDTO);
+
+    BlogArticleVo getById(BlogArticleDTO articleDTO);
+
+    boolean update(BlogArticleDTO articleDTO);
+
+    boolean delete(BlogArticleDTO articleDTO);
 }

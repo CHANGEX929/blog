@@ -7,7 +7,7 @@
             <ol class="breadcrumb">
                 <li><a href="add-article.html?article">增加文章</a></li>
             </ol>
-            <h1 class="page-header">管理 <span class="badge">7</span></h1>
+            <h1 class="page-header">管理 <span class="badge" id="articleCount"></span></h1>
             <div class="table-responsive">
                 <table class="table table-striped table-hover">
                     <thead>
@@ -20,20 +20,12 @@
                         <th class="hidden-sm"><span class="glyphicon glyphicon-comment"></span> <span
                                 class="visible-lg">评论</span></th>
                         <th><span class="glyphicon glyphicon-time"></span> <span class="visible-lg">日期</span></th>
+                        <th><span class="glyphicon glyphicon-lock"></span> <span class="visible-lg">是否加密</span></th>
                         <th><span class="glyphicon glyphicon-pencil"></span> <span class="visible-lg">操作</span></th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td><input type="checkbox" class="input-control" name="checkbox[]" value=""/></td>
-                        <td class="article-title">这是测试的文章标题这是测试的文章标题这是测试的文章标题这是测试的文章标题</td>
-                        <td>这个是栏目</td>
-                        <td class="hidden-sm">PHP、JavaScript</td>
-                        <td class="hidden-sm">0</td>
-                        <td>2015-12-03</td>
-                        <td><a href="update-article.ftl">修改</a> <a rel="6">删除</a></td>
-                    </tr>
-                    <tr>
+                    <tbody id="article">
+                    <#--   <tr>
                         <td><input type="checkbox" class="input-control" name="checkbox[]" value=""/></td>
                         <td class="article-title">这是测试的文章标题这是测试的文章标题这是测试的文章标题这是测试的文章标题</td>
                         <td>这个是栏目</td>
@@ -41,52 +33,7 @@
                         <td class="hidden-sm">0</td>
                         <td>2015-12-03</td>
                         <td><a href="">修改</a> <a rel="6">删除</a></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" class="input-control" name="checkbox[]" value=""/></td>
-                        <td class="article-title">这是测试的文章标题这是测试的文章标题这是测试的文章标题这是测试的文章标题</td>
-                        <td>这个是栏目</td>
-                        <td class="hidden-sm">PHP、JavaScript</td>
-                        <td class="hidden-sm">0</td>
-                        <td>2015-12-03</td>
-                        <td><a href="">修改</a> <a rel="6">删除</a></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" class="input-control" name="checkbox[]" value=""/></td>
-                        <td class="article-title">这是测试的文章标题这是测试的文章标题这是测试的文章标题这是测试的文章标题</td>
-                        <td>这个是栏目</td>
-                        <td class="hidden-sm">PHP、JavaScript</td>
-                        <td class="hidden-sm">0</td>
-                        <td>2015-12-03</td>
-                        <td><a href="">修改</a> <a rel="6">删除</a></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" class="input-control" name="checkbox[]" value=""/></td>
-                        <td class="article-title">这是测试的文章标题这是测试的文章标题这是测试的文章标题这是测试的文章标题</td>
-                        <td>这个是栏目</td>
-                        <td class="hidden-sm">PHP、JavaScript</td>
-                        <td class="hidden-sm">0</td>
-                        <td>2015-12-03</td>
-                        <td><a href="">修改</a> <a rel="6">删除</a></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" class="input-control" name="checkbox[]" value=""/></td>
-                        <td class="article-title">这是测试的文章标题这是测试的文章标题这是测试的文章标题这是测试的文章标题</td>
-                        <td>这个是栏目</td>
-                        <td class="hidden-sm">PHP、JavaScript</td>
-                        <td class="hidden-sm">0</td>
-                        <td>2015-12-03</td>
-                        <td><a href="">修改</a> <a rel="6">删除</a></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" class="input-control" name="checkbox[]" value=""/></td>
-                        <td class="article-title">这是测试的文章标题这是测试的文章标题这是测试的文章标题这是测试的文章标题</td>
-                        <td>这个是栏目</td>
-                        <td class="hidden-sm">PHP、JavaScript</td>
-                        <td class="hidden-sm">0</td>
-                        <td>2015-12-03</td>
-                        <td><a href="">修改</a> <a rel="6">删除</a></td>
-                    </tr>
+                    </tr>-->
                     </tbody>
                 </table>
             </div>
@@ -290,10 +237,44 @@
                         }
                     });
                 }
-                ;
             }
-            ;
         });
+
+        getArticleList({"authorId": 1}, function (result) {
+
+            var str = "";
+            for (var i = 0; i < result.dataList.length; i++) {
+                var lockValue;
+                if (result.dataList[i].isSecret == 1) {
+                    lockValue = "否";
+                } else {
+                    lockValue = "是";
+                }
+                str += "<tr>\n" +
+                        "   <td><input type=\"checkbox\" class=\"input-control\" name=\"checkbox[]\" value=\"\"/></td>\n" +
+                        "   <td class=\"article-title\">" + result.dataList[i].title + "</td>\n" +
+                        "   <td>" + result.dataList[i].tagName + "</td>\n" +
+                        "   <td class=\"hidden-sm\">" + result.dataList[i].keyWord + "</td>\n" +
+                        "   <td class=\"hidden-sm\">" + result.dataList[i].readNum + "</td>\n" +
+                        "   <td>" + result.dataList[i].createDate + "</td>\n" +
+                        "   <td>" + lockValue + "</td>\n" +
+                        "   <td><a href=\"update-article.html?article&id=" + result.dataList[i].id + "\">修改</a> <a rel=\"6\" articleId='" + result.dataList[i].id + "' class='deleteArticleBtn'>删除</a></td>\n" +
+                        "</tr>";
+            }
+            $("#article").html(str);
+            $("#articleCount").html(result.dataList.length);
+        })
+
+        $("#article").on("click", ".deleteArticleBtn", function (e) {
+            var id = $(e.target).attr("articleId");
+            if (confirm("确认？")) {
+                deleteArticle({"id": id}, function (result) {
+                    alert("删除成功");
+                    window.location.reload();
+                })
+            }
+        })
+
     });
 </script>
 </body>

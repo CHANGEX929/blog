@@ -20,14 +20,14 @@
         </style>
         <section class="post_content">
             <header class="post_header">
-                <h1 class="post_title">链接</h1>
+                <h1 class="post_title">分类</h1>
             </header>
             <div class="links">
-                <h3 class="catalog-title">Life Blog</h3>
+            <#--<h3 class="catalog-title">CHANGEX-SITE</h3>-->
                 <div class="catalog-description"></div>
-                <div class="catalog-share">4 items in collection</div>
-                <div class="userItems">
-                    <div class="userItem">
+                <div class="catalog-share" id="count"></div>
+                <div class="userItems" id="categoryList">
+                <#--        <div class="userItem">
                         <div class="userItem--inner">
                             <div class="userItem-content"><img alt='' src='images/8e5da64c712d2bb59235d8d746108cb1.jpeg'
                                                                class='avatar avatar-64 photo' height='64' width='64'/>
@@ -66,7 +66,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </section>
@@ -77,5 +77,31 @@
 		<#include "public/foot.ftl">
 
 </body>
+
+<script type="text/javascript">
+    $(function () {
+        //显示栏目
+        getCategoryList({"authorId": 1}, function (result) {
+
+            var str = ""
+
+            for (var i = 0; i < result.dataList.length; i++) {
+                str += "    <div class=\"userItem\">\n" +
+                        "                        <div class=\"userItem--inner\">\n" +
+                        "                            <div class=\"userItem-content\"><img alt='' src=''\n" +
+                        "                                                               class='avatar avatar-64 photo' height='64' width='64'/>\n" +
+                        "                                <div class=\"userItem-name\">\n" +
+                        "                                    <a class=\"link link--primary\" href=\"\" >" + result.dataList[i].name + "</a>\n" +
+                        "                                </div>\n" +
+                        "                            </div>\n" +
+                        "                        </div>\n" +
+                        "                    </div>";
+            }
+
+            $("#categoryList").html(str);
+            $("#count").html(result.dataList.length + " items in collection");
+        });
+    })
+</script>
 
 </html>

@@ -12,6 +12,8 @@ import lombok.Data;
 @Data
 public class BlogArticleDTO {
 
+    @ApiModelProperty(value = "文章ID")
+    private Integer id;
     @ApiModelProperty(value = "标题")
     private String title;
     @ApiModelProperty(value = "内容")
@@ -22,6 +24,10 @@ public class BlogArticleDTO {
     private String picUrl;
     @ApiModelProperty(value = "标签ID")
     private Integer tagId;
+    @ApiModelProperty(value = "关键词")
+    private String keyWord;
+    @ApiModelProperty(value = "摘要")
+    private String summary;
     @ApiModelProperty(value = "是否加密，1：加密，0：不加密")
     private Integer isSecret;
 

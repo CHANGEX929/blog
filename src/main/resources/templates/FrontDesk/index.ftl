@@ -10,7 +10,7 @@
 <div id="main" class="content">
     <div class="container">
         <article itemscope="itemscope">
-            <div class="posts-list js-posts">
+            <div class="posts-list js-posts" id="articleList">
 
 
             <#--       <div class="post post-layout-list" data-aos="fade-up">
@@ -27,41 +27,41 @@
                    </div>-->
 
 
-                <div class="post post-layout-list" data-aos="fade-up">
-                    <div class="postnormal review ">
-                        <div class="post-container review-item">
-                            <div class="row review-item-wrapper">
-                                <div class="col-sm-3">
-                                    <a rel="nofollow" href="detail.html">
-                                        <div class="review-item-img"
-                                             style="background-image:url(images/b0ce3f3cde0c084b6d42321b2dcbc407.jpeg);"></div>
-                                    </a>
-                                </div>
-                                <div class="col-sm-9 flex-xs-middle">
-                                    <div class="review-item-title">
-                                        <a href="detail.html" rel="bookmark">我才不会写年终总结之瞎说篇</a>
-                                    </div>
-                                    <div class="review-item-creator"><b>发布日期：</b>2017-12-30</div>
-                                    <span class="review-item-info"><b>总浏览量：</b>1203 reads</span>
-                                </div>
-                            </div>
-                            <div class="review-bg-wrapper">
-                                <div class="bg-blur"
-                                     style="background-image: url(images/b0ce3f3cde0c084b6d42321b2dcbc407.jpeg);"></div>
-                            </div>
-                        </div>
-                        <div class="post-container">
-                            <div class="entry-content">
-                                确实讨厌去写所谓的年终总结，在公司已经被动的想领导上交一个总结，自己就懒得去总结，不然，我觉得脑子里应该会编写出八九不离十的内容，所以正经八儿的事情略了，瞎说一下。
-                                年初的人事调动是个人最不能接受的事情，但不接受也得接受，老板一句“这是命令...
-                            </div>
-                            <div class="post-footer">
-                                <a class="gaz-btn primary" href="detail.html">READ MORE</a>
-                                <span class="total-comments-on-post pull-right"><a href="javascript:;">31 Comments</a></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <#--   <div class="post post-layout-list" data-aos="fade-up">
+                   <div class="postnormal review ">
+                       <div class="post-container review-item">
+                           <div class="row review-item-wrapper">
+                               <div class="col-sm-3">
+                                   <a rel="nofollow" href="detail.html">
+                                       <div class="review-item-img"
+                                            style="background-image:url(images/b0ce3f3cde0c084b6d42321b2dcbc407.jpeg);"></div>
+                                   </a>
+                               </div>
+                               <div class="col-sm-9 flex-xs-middle">
+                                   <div class="review-item-title">
+                                       <a href="detail.html" rel="bookmark">我才不会写年终总结之瞎说篇</a>
+                                   </div>
+                                   <div class="review-item-creator"><b>发布日期：</b>2017-12-30</div>
+                                   <span class="review-item-info"><b>总浏览量：</b>1203 reads</span>
+                               </div>
+                           </div>
+                           <div class="review-bg-wrapper">
+                               <div class="bg-blur"
+                                    style="background-image: url(images/b0ce3f3cde0c084b6d42321b2dcbc407.jpeg);"></div>
+                           </div>
+                       </div>
+                       <div class="post-container">
+                           <div class="entry-content">
+                               确实讨厌去写所谓的年终总结，在公司已经被动的想领导上交一个总结，自己就懒得去总结，不然，我觉得脑子里应该会编写出八九不离十的内容，所以正经八儿的事情略了，瞎说一下。
+                               年初的人事调动是个人最不能接受的事情，但不接受也得接受，老板一句“这是命令...
+                           </div>
+                           <div class="post-footer">
+                               <a class="gaz-btn primary" href="detail.html">READ MORE</a>
+                               <span class="total-comments-on-post pull-right"><a href="javascript:;">31 Comments</a></span>
+                           </div>
+                       </div>
+                   </div>
+               </div>-->
 
 
 
@@ -142,18 +142,42 @@
                       </div>
                   </div>-->
             </div>
-            <!-- post-formats end Infinite Scroll star -->
-            <!-- post-formats -->
-            <div class="pagination js-pagination">
+        </article>
+        <!-- post-formats end Infinite Scroll star -->
+        <!-- post-formats -->
+    <#--        <div class="pagination js-pagination">
                 <div class="js-next pagination__load">
                     <a href=""><i class="iconfont">&#xe605;</i></a>
                 </div>
-            </div>
-            <!-- -pagination  -->
+            </div>-->
+        <!-- -pagination  -->
     </div>
+
 </div>
 <#--尾部-->
 		<#include "public/foot.ftl">
+
+<script type="text/javascript">
+    $(function () {
+        getArticleList({"authorId": 1}, function (result) {
+            var str = "";
+            for (var i = 0; i < result.dataList.length; i++) {
+                str += "<div class=\"post post-layout-list\" data-aos=\"fade-up\">" +
+                        "<div class=\"status_list_item icon_kyubo\">" +
+                        "<div class=\"status_user\"" +
+                        "style=\"background-image: url(images/b0ce3f3cde0c084b6d42321b2dcbc407.jpeg);\">" +
+                        "<div class=\"status_section\">" +
+                        "<a href=\"detail.html?id="+result.dataList[i].id+"\" class=\"status_btn\">" + result.dataList[i].title + "</a>" +
+                        "<p class=\"section_p\">" + result.dataList[i].summary + "</p>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>" +
+                        "</div>"
+            }
+            $("#articleList").html(str);
+        })
+    })
+</script>
 
 </body>
 

@@ -29,17 +29,28 @@
                     <a class="navbar-brand" href="/">CHANGEX</a></div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="">消息 <span class="badge">1</span></a></li>
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                                aria-haspopup="true" aria-expanded="false">admin <span
-                                class="caret"></span></a>
-                            <ul class="dropdown-menu dropdown-menu-left">
-                                <li><a title="查看或修改个人信息" data-toggle="modal" data-target="#seeUserInfo">个人信息</a></li>
-                                <li><a title="查看您的登录记录" data-toggle="modal" data-target="#seeUserLoginlog">登录记录</a></li>
-                            </ul>
+                    <#-- <li><a href="">消息 <span class="badge">1</span></a></li>-->
+                        <li class="dropdown">
+
+                      <#--      <a class="dropdown-toggle dropdown-menu dropdown-menu-left" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                               href="article.html?article">文章</a>
+
+                            <a class="dropdown-toggle dropdown-menu dropdown-menu-left" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                               href="category.html?category">栏目</a>-->
+
+                        <#--      <a class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                 aria-haspopup="true" aria-expanded="false">
+                                  admin
+                                  <span class="caret"></span>
+                              </a>-->
+
+                        <#--  <ul class="dropdown-menu dropdown-menu-left">
+                              <li><a title="查看或修改个人信息" data-toggle="modal" data-target="#seeUserInfo">个人信息</a></li>
+                              <li><a title="查看您的登录记录" data-toggle="modal" data-target="#seeUserLoginlog">登录记录</a></li>
+                          </ul>-->
                         </li>
-                        <li><a href="login.html" onClick="if(!confirm('是否确认退出？'))return false;">退出登录</a></li>
-                        <li><a data-toggle="modal" data-target="#WeChat">帮助</a></li>
+                    <#--  <li><a href="login.html" onClick="if(!confirm('是否确认退出？'))return false;">注销</a></li>-->
+                    <#-- <li><a data-toggle="modal" data-target="#WeChat">帮助</a></li>-->
                     </ul>
                     <form action="javascript:;" method="post" class="navbar-form navbar-right" role="search">
                         <div class="input-group">
@@ -55,30 +66,30 @@
     </header>
     <div class="row">
         <aside class="col-sm-3 col-md-2 col-lg-2 sidebar">
-            <ul class="nav nav-sidebar">
+        <#--    <ul class="nav nav-sidebar">
                 <li <#if RequestParameters['report']??>
 
                     class="active"
 
                 </#if>><a href="index.html?report">报告</a></li>
-            </ul>
+            </ul>-->
             <ul class="nav nav-sidebar">
                 <li<#if RequestParameters['article']??>
 
                     class="active"
 
                 </#if>><a href="article.html?article">文章</a></li>
-                <li  <#if RequestParameters['notice']??>
+            <#--            <li  <#if RequestParameters['notice']??>
 
-                    class="active"
+                            class="active"
 
-                </#if>><a href="notice.html?notice">公告</a></li>
-                <li  <#if RequestParameters['comment']??>
+                        </#if>><a href="notice.html?notice">公告</a></li>-->
+            <#--           <li  <#if RequestParameters['comment']??>
 
-                    class="active"
+                           class="active"
 
-                </#if>><a href="comment.html?comment">评论</a></li>
-                <li><a data-toggle="tooltip" data-placement="bottom" title="网站暂无留言功能">留言</a></li>
+                       </#if>><a href="comment.html?comment">评论</a></li>-->
+            <#-- <li><a data-toggle="tooltip" data-placement="bottom" title="网站暂无留言功能">留言</a></li>-->
             </ul>
             <ul class="nav nav-sidebar">
                 <li <#if RequestParameters['category']??>
@@ -86,46 +97,53 @@
                     class="active"
 
                 </#if>><a href="category.html?category">栏目</a></li>
-                <li <#if RequestParameters['other']??>
+            <#--            <li <#if RequestParameters['other']??>
 
-                    class="active"
+                            class="active"
 
-                </#if>><a class="dropdown-toggle" id="otherMenu" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false">其他</a>
-                    <ul class="dropdown-menu" aria-labelledby="otherMenu">
-                        <li><a href="flink.html?other">友情链接</a></li>
-                        <li><a data-toggle="modal" data-target="#areDeveloping">访问记录</a></li>
-                    </ul>
-                </li>
+                        </#if>><a class="dropdown-toggle" id="otherMenu" data-toggle="dropdown" aria-haspopup="true"
+                               aria-expanded="false">其他</a>
+                            <ul class="dropdown-menu" aria-labelledby="otherMenu">
+                                <li><a href="flink.html?other">友情链接</a></li>
+                                <li><a data-toggle="modal" data-target="#areDeveloping">访问记录</a></li>
+                            </ul>
+                        </li>-->
             </ul>
             <ul class="nav nav-sidebar">
-                <li <#if RequestParameters['user']??>
+                <li <#if RequestParameters['linker']??>
 
                     class="active"
 
-                </#if>><a class="dropdown-toggle" id="userMenu" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false">用户</a>
-                    <ul class="dropdown-menu" aria-labelledby="userMenu">
-                        <li><a data-toggle="modal" data-target="#areDeveloping">管理用户组</a></li>
-                        <li><a href="manage-user.html?user">管理用户</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="loginlog.html?user">管理登录日志</a></li>
-                    </ul>
-                </li>
-                <li  <#if RequestParameters['set']??>
-
-                    class="active"
-
-                </#if>><a class="dropdown-toggle" id="settingMenu" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false" href="setting.html">设置</a>
-                    <ul class="dropdown-menu" aria-labelledby="settingMenu">
-                        <li><a href="setting.html?set">基本设置</a></li>
-                        <li><a href="readset.html?set">阅读设置</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a data-toggle="modal" data-target="#areDeveloping">安全配置</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="disabled"><a>扩展菜单</a></li>
-                    </ul>
-                </li>
+                </#if>><a href="flink.html?linker">友情连接</a></li>
             </ul>
+        <#--           <ul class="nav nav-sidebar">
+                       <li <#if RequestParameters['user']??>
+
+                           class="active"
+
+                       </#if>><a class="dropdown-toggle" id="userMenu" data-toggle="dropdown" aria-haspopup="true"
+                              aria-expanded="false">用户</a>
+                           <ul class="dropdown-menu" aria-labelledby="userMenu">
+                               <li><a data-toggle="modal" data-target="#areDeveloping">管理用户组</a></li>
+                               <li><a href="manage-user.html?user">管理用户</a></li>
+                               <li role="separator" class="divider"></li>
+                               <li><a href="loginlog.html?user">管理登录日志</a></li>
+                           </ul>
+                       </li>
+                       <li  <#if RequestParameters['set']??>
+
+                           class="active"
+
+                       </#if>><a class="dropdown-toggle" id="settingMenu" data-toggle="dropdown" aria-haspopup="true"
+                              aria-expanded="false" href="setting.html">设置</a>
+                           <ul class="dropdown-menu" aria-labelledby="settingMenu">
+                               <li><a href="setting.html?set">基本设置</a></li>
+                               <li><a href="readset.html?set">阅读设置</a></li>
+                               <li role="separator" class="divider"></li>
+                               <li><a data-toggle="modal" data-target="#areDeveloping">安全配置</a></li>
+                               <li role="separator" class="divider"></li>
+                               <li class="disabled"><a>扩展菜单</a></li>
+                           </ul>
+                       </li>
+                   </ul>-->
         </aside>

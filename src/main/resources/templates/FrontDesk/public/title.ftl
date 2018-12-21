@@ -7,4 +7,5 @@
     <link rel="shortcut icon" href="images/omikron.png" >
     <link rel="stylesheet" type="text/css" href="css/index.css" media="all" />
     <link rel="stylesheet" type="text/css" href="css/detail.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
 </head>

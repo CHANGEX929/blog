@@ -159,9 +159,8 @@
 <script type="text/javascript" charset="utf-8" src="../../lang/zh-cn/zh-cn.js"></script>
 <script id="uploadEditor" type="text/plain" style="display:none;"></script>
 <script type = "text/javascript"charset = "utf-8"src = "../../ueditor.config.js" ></script>
-<script type="text/javascript" charset="utf-8" src="../../ueditor.all.min.js">
-</script>
+<script type="text/javascript" charset="utf-8" src="../../ueditor.all.min.js"></script>
 <script src="../../js/jquery.shCircleLoader.js" type="text/javascript"></script>
-<script src="../../js/blog/back/datalist.js" type="text/javascript"></script>
+<script src="../../js/blog/datalist.js" type="text/javascript"></script>
 
 <#include "programBar.ftl">

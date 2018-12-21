@@ -35,7 +35,7 @@ public class BlogTagController {
     }
 
     @ApiOperation(value = "修改栏目")
-    @PutMapping("/tag")
+    @PostMapping("/put/tag")
     public ResponseResult update(@ApiParam(value = "栏目") BlogTagDTO blogTagDTO) {
 
         if (blogTagService.update(blogTagDTO)) {
@@ -46,7 +46,7 @@ public class BlogTagController {
     }
 
     @ApiOperation(value = "删除栏目")
-    @DeleteMapping("/tag")
+    @PostMapping("/delete/tag")
     public ResponseResult del(@ApiParam(value = "栏目") BlogTagDTO blogTagDTO) {
 
         if (blogTagService.delById(blogTagDTO.getId())) {

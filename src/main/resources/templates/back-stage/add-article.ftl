@@ -3,30 +3,31 @@
 <#--头部 END-->
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-lg-10 col-md-offset-2 main" id="main">
             <div class="row">
-                <form action="/Article/add" method="post" class="add-article-form">
+                <form action="javascript:;" id="add-article-form" class="add-article-form">
                     <div class="col-md-9">
                         <h1 class="page-header">撰写新文章</h1>
                         <div class="form-group">
                             <label for="article-title" class="sr-only">标题</label>
                             <input type="text" id="article-title" name="title" class="form-control"
                                    placeholder="在此处输入标题" required autofocus autocomplete="off">
+                            <input type="text" name="authorId" value="1" hidden/>
                         </div>
                         <div class="form-group">
                             <label for="article-content" class="sr-only">内容</label>
-                            <script id="article-content" name="content" type="text/plain"></script>
+                            <script id="article-content" required name="content" type="text/plain"></script>
                         </div>
-                        <div class="add-article-box">
+                   <#--     <div class="add-article-box">
                             <h2 class="add-article-box-title"><span>关键字</span></h2>
                             <div class="add-article-box-content">
-                                <input type="text" class="form-control" placeholder="请输入关键字" name="keywords"
+                                <input type="text" class="form-control" placeholder="请输入关键字" name="keyword"
                                        autocomplete="off">
                                 <span class="prompt-text">多个标签请用英文逗号,隔开。</span>
                             </div>
-                        </div>
+                        </div>-->
                         <div class="add-article-box">
                             <h2 class="add-article-box-title"><span>描述</span></h2>
                             <div class="add-article-box-content">
-                                <textarea class="form-control" name="describe" autocomplete="off"></textarea>
+                                <textarea class="form-control" name="summary" autocomplete="off"></textarea>
                                 <span class="prompt-text">描述是可选的手工创建的内容总结，并可以在网页描述中使用</span>
                             </div>
                         </div>
@@ -68,7 +69,7 @@
                         <div class="add-article-box">
                             <h2 class="add-article-box-title"><span>标签</span></h2>
                             <div class="add-article-box-content">
-                                <input type="text" class="form-control" placeholder="输入新标签" name="tags"
+                                <input type="text" class="form-control" placeholder="输入新标签" name="keyWord"
                                        autocomplete="off">
                                 <span class="prompt-text">多个标签请用英文逗号,隔开</span></div>
                         </div>
@@ -86,13 +87,13 @@
                             <h2 class="add-article-box-title"><span>发布</span></h2>
                             <div class="add-article-box-content">
                                 <p><label>状态：</label><span class="article-status-display">未发布</span></p>
-                                <p><label>公开度：</label><input type="radio" name="visibility" value="0" checked/>公开 <input
-                                        type="radio" name="visibility" value="1"/>加密</p>
-                                <p><label>发布于：</label><span class="article-time-display"><input style="border: none;"
-                                                                                                type="datetime"
-                                                                                                name="time"
-                                                                                                value="2016-01-09 17:29:37"/></span>
-                                </p>
+                                <p><label>公开度：</label><input type="radio" name="isSecret" value="1" checked/>公开 <input
+                                        type="radio" name="visibility" value="0"/>加密</p>
+                            <#--  <p><label>发布于：</label><span class="article-time-display"><input style="border: none;"
+                                                                                              type="datetime"
+                                                                                              name="time"
+                                                                                              value="2016-01-09 17:29:37"/></span>
+                              </p>-->
                             </div>
                             <div class="add-article-box-footer">
                                 <button class="btn btn-primary" type="submit" name="submit">发布</button>
@@ -309,11 +310,22 @@
 
             str += "<li>" +
                     "        <label>" +
-                    "        <input name=\"category\" type=\"radio\" value=\"2\">"
+                    "        <input name=\"tagId\" type=\"radio\" required value=\"" + result.dataList[i].id + "\">"
                     + result.dataList[i].name + " <em class=\"hidden-md\">( 栏目ID: <span>" + result.dataList[i].id + "</span> )</em></label>" +
                     "</li>"
         }
         $("#category-list").html(str);
+    })
+
+    $("#add-article-form").submit(function () {
+
+        addArticle($("#add-article-form").serialize(), function (result) {
+
+            if (result.id != 0) {
+                alert("添加成功");
+                window.location.href = "article.html?article";
+            }
+        })
     })
 
 
