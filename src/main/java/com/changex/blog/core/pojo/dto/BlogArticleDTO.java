@@ -30,6 +30,8 @@ public class BlogArticleDTO {
     private String summary;
     @ApiModelProperty(value = "是否加密，1：加密，0：不加密")
     private Integer isSecret;
+    @ApiModelProperty(value = "阅读次数")
+    private Integer readNum;
 
 
 }

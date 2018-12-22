@@ -50,7 +50,18 @@ public class TBlogArticleServiceImpl extends ServiceImpl<TBlogArticleMapper, TBl
     @Override
     public BlogArticleVo getById(BlogArticleDTO articleDTO) {
 
-        return articleMapper.getById(articleDTO);
+        BlogArticleVo blogArticleVo = articleMapper.getById(articleDTO);
+
+        //增加阅读数目
+        if (blogArticleVo != null) {
+
+            BlogArticleDTO article = new BlogArticleDTO();
+            article.setId(blogArticleVo.getId());
+            article.setReadNum(blogArticleVo.getReadNum() + 1);
+            this.update(articleDTO);
+        }
+
+        return blogArticleVo;
     }
 
     @Override
