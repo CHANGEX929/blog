@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/login.css">
     <link rel="apple-touch-icon-precomposed" href="../../images/icon/icon.png">
-    <link rel="shortcut icon" href="../images/omikron.png">
+    <link rel="shortcut icon" href="../images/webicon.png">
     <script type='text/javascript' src='../../js/jquery-3.3.1.min.js'></script>
 
 </head>
@@ -18,7 +18,7 @@
 
 <body class="user-select">
 <div class="container">
-    <div class="siteIcon"><img src="../../images/omikron.png" alt="" data-toggle="tooltip" data-placement="top"
+    <div class="siteIcon"><img src="../../images/webicon.png" alt="" data-toggle="tooltip" data-placement="top"
                                title="欢迎使用CHANGEX-SITE管理系统" draggable="false"/></div>
     <form id="loginForm" action="javascript:;" method="post" autocomplete="off" class="form-signin">
         <h2 class="form-signin-heading">管理员登录</h2>

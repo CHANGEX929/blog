@@ -8,7 +8,7 @@
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
     <title>CHANGEX-SITE</title>
-    <link rel="shortcut icon" href="../images/omikron.png">
+    <link rel="shortcut icon" href="../images/webicon.png">
     <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">

@@ -4,7 +4,7 @@
     <title>CHANGEX-SITE</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <link rel="shortcut icon" href="images/omikron.png" >
+    <link rel="shortcut icon" href="images/webicon.png" >
     <link rel="stylesheet" type="text/css" href="css/index.css" media="all" />
     <link rel="stylesheet" type="text/css" href="css/detail.css" />
     <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
