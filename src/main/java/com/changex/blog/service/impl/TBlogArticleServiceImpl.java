@@ -1,5 +1,6 @@
 package com.changex.blog.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.changex.blog.core.pojo.TBlogArticle;
 import com.changex.blog.core.pojo.dto.BlogArticleDTO;
@@ -58,7 +59,7 @@ public class TBlogArticleServiceImpl extends ServiceImpl<TBlogArticleMapper, TBl
             BlogArticleDTO article = new BlogArticleDTO();
             article.setId(blogArticleVo.getId());
             article.setReadNum(blogArticleVo.getReadNum() + 1);
-            this.update(articleDTO);
+            this.update(article);
         }
 
         return blogArticleVo;
