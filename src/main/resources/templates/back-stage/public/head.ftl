@@ -32,11 +32,11 @@
                     <#-- <li><a href="">消息 <span class="badge">1</span></a></li>-->
                         <li class="dropdown">
 
-                      <#--      <a class="dropdown-toggle dropdown-menu dropdown-menu-left" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                               href="article.html?article">文章</a>
+                        <#--      <a class="dropdown-toggle dropdown-menu dropdown-menu-left" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                 href="article.html?article">文章</a>
 
-                            <a class="dropdown-toggle dropdown-menu dropdown-menu-left" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                               href="category.html?category">栏目</a>-->
+                              <a class="dropdown-toggle dropdown-menu dropdown-menu-left" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                 href="category.html?category">栏目</a>-->
 
                         <#--      <a class="dropdown-toggle" data-toggle="dropdown" role="button"
                                  aria-haspopup="true" aria-expanded="false">
@@ -49,7 +49,7 @@
                               <li><a title="查看您的登录记录" data-toggle="modal" data-target="#seeUserLoginlog">登录记录</a></li>
                           </ul>-->
                         </li>
-                    <#--  <li><a href="login.html" onClick="if(!confirm('是否确认退出？'))return false;">注销</a></li>-->
+                        <li><a href="javascript:;" id="logOutBtn">注销</a></li>
                     <#-- <li><a data-toggle="modal" data-target="#WeChat">帮助</a></li>-->
                     </ul>
                     <form action="javascript:;" method="post" class="navbar-form navbar-right" role="search">

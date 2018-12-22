@@ -161,6 +161,19 @@
 <script type = "text/javascript"charset = "utf-8"src = "../../ueditor.config.js" ></script>
 <script type="text/javascript" charset="utf-8" src="../../ueditor.all.min.js"></script>
 <script src="../../js/jquery.shCircleLoader.js" type="text/javascript"></script>
+<script type='text/javascript' src='../../js/jquery-md5.js'></script>
 <script src="../../js/blog/datalist.js" type="text/javascript"></script>
-
 <#include "programBar.ftl">
+
+<script type="text/javascript">
+    $(function () {
+       $("#logOutBtn").click(function () {
+          doLogout(null,function (result) {
+              if(result.success){
+
+                  window.location.href = "article.html?article";
+              }
+          });
+       });
+    })
+</script>

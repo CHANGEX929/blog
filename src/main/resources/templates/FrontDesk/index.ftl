@@ -159,6 +159,7 @@
 
 <script type="text/javascript">
     $(function () {
+
         getArticleList({"authorId": 1}, function (result) {
             var str = "";
             for (var i = 0; i < result.dataList.length; i++) {

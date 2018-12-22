@@ -40,6 +40,20 @@ public class BlogArticleController {
         return ResponseResultFactory.getList(blogArticleService.listByAuthorId(blogArticle));
     }
 
+    @ApiOperation(value = "根据关键词搜索列表")
+    @GetMapping("/byKeyWord")
+    public ListResponseResult<BlogArticleVo> listByKeyWord(@ApiParam(value = "文章") BlogArticleDTO blogArticle) {
+
+        return ResponseResultFactory.getList(blogArticleService.listByAuthorId(blogArticle));
+    }
+
+    @ApiOperation(value = "根据分类搜索文章列表")
+    @GetMapping("/byCategoryId")
+    public ListResponseResult<BlogArticleVo> listByKeyCategoryId(@ApiParam(value = "文章") BlogArticleDTO blogArticle) {
+
+        return ResponseResultFactory.getList(blogArticleService.listByAuthorId(blogArticle));
+    }
+
     @ApiOperation(value = "根据文章ID查找文章")
     @GetMapping("/article/byId")
     public DataResponseResult<BlogArticleVo> getById(@ApiParam(value = "文章") BlogArticleDTO blogArticle) {

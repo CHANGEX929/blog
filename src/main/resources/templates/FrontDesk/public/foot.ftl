@@ -37,5 +37,6 @@
     <script src="../../js/jquery.shCircleLoader.js" type="text/javascript"></script>
     <script src="../../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../js/blog/datalist.js"></script>
+    <script type='text/javascript' src='../../js/jquery-md5.js'></script>
     <#include "../../back-stage/public/programBar.ftl">
 </footer>

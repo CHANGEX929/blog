@@ -24,12 +24,12 @@ public class BackStageLinkController {
     @GetMapping("/index.html")
     public String welcome(HttpServletRequest request) {
 
-        if (request.getParameterMap().keySet().contains("report")) {
+        if (request.getParameterMap().keySet().contains("article")) {
 
-            return Constant.BACK_DESK + "index";
+            return Constant.BACK_DESK + "article";
         } else {
 
-            return "redirect:index.html?report";
+            return "redirect:index.html?article";
         }
     }
 

@@ -19,6 +19,10 @@ function doAjax(url, type, data, callback) {
     });
 }
 
+function getPassWord(passWord) {
+    return $.md5(passWord + "qcsaidksjau/./;'dakjhdaurfh");
+}
+
 function getQueryString(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
     var r = decodeURI(window.location.search).substr(1).match(reg); //匹配目标参数
@@ -85,4 +89,19 @@ function deleteArticle(data, callback) {
     doAjax(articlesUrl + "/delete/article", "POST", data, function (result) {
         callback(result);
     });
+}
+
+//登陆相关
+var loginUrl = "/back/login";
+
+function doLogin(data, callback) {
+    doAjax(loginUrl, "POST", data, function (result) {
+        callback(result);
+    })
+}
+
+function doLogout(data, callback) {
+    doAjax(loginUrl+"/logout", "POST", data, function (result) {
+        callback(result);
+    })
 }

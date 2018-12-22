@@ -7,7 +7,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-@MapperScan("com.changex.blog.mapper")
+@MapperScan("com.changex.blog.mapper.*")
 public class BlogApplication {
 
     public static void main(String[] args) {
