@@ -49,6 +49,18 @@ public class TBlogArticleServiceImpl extends ServiceImpl<TBlogArticleMapper, TBl
     }
 
     @Override
+    public List<BlogArticleVo> listByTagId(BlogArticleDTO articleDTO) {
+
+        return articleMapper.listByTagId(articleDTO);
+    }
+
+    @Override
+    public List<BlogArticleVo> listByKeyWord(BlogArticleDTO articleDTO) {
+
+        return articleMapper.listByKeyWord("%" + articleDTO.getKeyWord() + "%");
+    }
+
+    @Override
     public BlogArticleVo getById(BlogArticleDTO articleDTO) {
 
         BlogArticleVo blogArticleVo = articleMapper.getById(articleDTO);

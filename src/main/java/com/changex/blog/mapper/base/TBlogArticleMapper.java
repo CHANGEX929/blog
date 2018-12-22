@@ -21,4 +21,12 @@ public interface TBlogArticleMapper extends BaseMapper<TBlogArticle> {
     @Select("SELECT a.*,t.name AS tag_name FROM blog_article a,blog_tag t" +
             " WHERE a.tag_id = t.id AND a.id = #{id} AND t.is_valid =1 AND a.is_valid = 1")
     BlogArticleVo getById(BlogArticleDTO blogArticleDTO);
+
+    @Select("SELECT a.*,t.name AS tag_name FROM blog_article a,blog_tag t" +
+            " WHERE a.tag_id = t.id AND a.tag_id = #{tagId} AND t.is_valid =1 AND a.is_valid = 1")
+    List<BlogArticleVo> listByTagId(BlogArticleDTO blogArticleDTO);
+
+    @Select("SELECT a.*,t.name AS tag_name FROM blog_article a,blog_tag t" +
+            " WHERE a.tag_id = t.id  AND t.is_valid =1 AND a.is_valid = 1 AND concat(a.title,a.key_word,t.`name`) LIKE #{keyWord}")
+    List<BlogArticleVo> listByKeyWord(String keyWord);
 }

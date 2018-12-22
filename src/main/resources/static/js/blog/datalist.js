@@ -67,6 +67,18 @@ function getArticleList(data, callback) {
     });
 }
 
+function getArticleListByTagId(data, callback) {
+    doAjax(articlesUrl + "byCategoryId", "GET", data, function (result) {
+        callback(result);
+    });
+}
+
+function getArticleListByKeyWord(data, callback) {
+    doAjax(articlesUrl + "byKeyWord", "GET", data, function (result) {
+        callback(result);
+    });
+}
+
 function getArticleById(data, callback) {
     doAjax(articlesUrl + "article/byId", "GET", data, function (result) {
         callback(result);

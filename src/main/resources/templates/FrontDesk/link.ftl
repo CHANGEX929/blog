@@ -49,7 +49,7 @@
                         "                            <div class=\"userItem-content\"><img alt='' src=''\n" +
                         "                                                               class='avatar avatar-64 photo' height='64' width='64'/>\n" +
                         "                                <div class=\"userItem-name\">\n" +
-                        "                                    <a class=\"link link--primary\" href=\"\" >" + result.dataList[i].name + "</a>\n" +
+                        "                                    <a class=\"link link--primary\" href=\"search.html?tagId=" + result.dataList[i].id + "&searchType=tagId&tagName=" + result.dataList[i].name + "\" >" + result.dataList[i].name + "</a>\n" +
                         "                                </div>\n" +
                         "                            </div>\n" +
                         "                        </div>\n" +

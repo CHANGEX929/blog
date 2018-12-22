@@ -5,10 +5,11 @@
             <div id="search-container" class="ajax_search">
                 <form method="get" id="searchform" action="">
                     <div class="filter_container"><input type="text" value="" autocomplete="off"
-                                                         placeholder="Type then select or enter" name="s"
+                                                         placeholder="Type then select or enter" name="keyWord"
                                                          id="search-input"/>
                         <ul id="search_filtered" class="search_filtered"></ul>
                     </div>
+                    <input type="text" hidden name="searchType" value="keyWord"/>
                     <input type="submit" name="submit" id="searchsubmit" class="searchsubmit" value=""/>
                 </form>
             </div>

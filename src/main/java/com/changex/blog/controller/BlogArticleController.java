@@ -44,14 +44,14 @@ public class BlogArticleController {
     @GetMapping("/byKeyWord")
     public ListResponseResult<BlogArticleVo> listByKeyWord(@ApiParam(value = "文章") BlogArticleDTO blogArticle) {
 
-        return ResponseResultFactory.getList(blogArticleService.listByAuthorId(blogArticle));
+        return ResponseResultFactory.getList(blogArticleService.listByKeyWord(blogArticle));
     }
 
     @ApiOperation(value = "根据分类搜索文章列表")
     @GetMapping("/byCategoryId")
     public ListResponseResult<BlogArticleVo> listByKeyCategoryId(@ApiParam(value = "文章") BlogArticleDTO blogArticle) {
 
-        return ResponseResultFactory.getList(blogArticleService.listByAuthorId(blogArticle));
+        return ResponseResultFactory.getList(blogArticleService.listByTagId(blogArticle));
     }
 
     @ApiOperation(value = "根据文章ID查找文章")

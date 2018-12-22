@@ -14,6 +14,10 @@ public interface TBlogArticleService {
 
     List<BlogArticleVo> listByAuthorId(BlogArticleDTO articleDTO);
 
+    List<BlogArticleVo> listByTagId(BlogArticleDTO articleDTO);
+
+    List<BlogArticleVo> listByKeyWord(BlogArticleDTO articleDTO);
+
     BlogArticleVo getById(BlogArticleDTO articleDTO);
 
     boolean update(BlogArticleDTO articleDTO);
