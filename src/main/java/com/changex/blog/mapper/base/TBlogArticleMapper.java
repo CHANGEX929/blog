@@ -15,7 +15,7 @@ import java.util.List;
 public interface TBlogArticleMapper extends BaseMapper<TBlogArticle> {
 
     @Select("SELECT a.*,t.name AS tag_name FROM blog_article a,blog_tag t" +
-            " WHERE a.tag_id = t.id AND a.author_id = #{authorId} AND t.author_id = #{authorId} AND t.is_valid =1 AND a.is_valid = 1")
+            " WHERE a.tag_id = t.id AND a.author_id = #{authorId} AND t.author_id = #{authorId} AND t.is_valid =1 AND a.is_valid = 1 ORDER BY create_date DESC")
     List<BlogArticleVo> listByAuthorId(BlogArticleDTO blogArticleDTO);
 
     @Select("SELECT a.*,t.name AS tag_name FROM blog_article a,blog_tag t" +
