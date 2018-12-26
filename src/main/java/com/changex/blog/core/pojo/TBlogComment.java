@@ -15,8 +15,8 @@ import java.time.LocalDateTime;
  * @Date 2018/11/18 4:43
  */
 @Data
-@TableName(value = "blog_comment")
 public class TBlogComment extends Model<TBlogComment> {
+    private static final long serialVersionUID = 1L;
     private Integer id;
     private Integer articleId;
     private Integer type;

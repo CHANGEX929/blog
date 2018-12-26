@@ -1,12 +1,6 @@
 package com.baidu.ueditor;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,7 +33,7 @@ public final class ConfigManager {
      */
     private ConfigManager(String rootPath, String contextPath, String uri) throws FileNotFoundException, IOException {
 
-        rootPath = rootPath.replace("\\", "/");
+        rootPath = rootPath.replace("\\", File.separator);
 
         this.rootPath = rootPath;
         this.contextPath = contextPath;
@@ -172,16 +166,13 @@ public final class ConfigManager {
 
     }
 
-    private String getConfigPath() {
+    private InputStream getConfigPath() {
         //return this.parentPath + File.separator + ConfigManager.configFileName;
         /*=========手动修改部分=========*/
         //return this.parentPath + File.separator + ConfigManager.configFileName;
-        try {
-            //获取classpath下的config.json路径
-            return this.getClass().getClassLoader().getResource("config.json").toURI().getPath();
-        } catch (URISyntaxException e) {
-            return null;
-        }
+
+        //获取classpath下的config.json路径
+        return this.getClass().getClassLoader().getResourceAsStream("config.json");
     }
 
     private String[] getArray(String key) {
@@ -197,13 +188,13 @@ public final class ConfigManager {
 
     }
 
-    private String readFile(String path) throws IOException {
+    private String readFile(InputStream in) throws IOException {
 
         StringBuilder builder = new StringBuilder();
 
         try {
 
-            InputStreamReader reader = new InputStreamReader(new FileInputStream(path), "UTF-8");
+            InputStreamReader reader = new InputStreamReader(in, "UTF-8");
             BufferedReader bfReader = new BufferedReader(reader);
 
             String tmpContent = null;

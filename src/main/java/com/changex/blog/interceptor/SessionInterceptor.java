@@ -14,6 +14,7 @@ public class SessionInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
         System.out.println("uri=" + request.getRequestURI());
+
         //登录不做拦截
         if (request.getRequestURI().equals("/back/login.html") || request.getRequestURI().equals("/back/login")) {
             return true;

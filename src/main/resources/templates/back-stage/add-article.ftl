@@ -56,7 +56,7 @@
                                 <p><label>状态：</label><span class="article-status-display">未发布</span></p>
                                 <p><label>公开度：</label><input type="radio" name="isSecret" value="1" checked/>公开 <input
                                         type="radio" name="visibility" value="0"/>加密</p>
-                              </p>-->
+                              </p>
                             </div>
                             <div class="add-article-box-footer">
                                 <button class="btn btn-primary" type="submit" name="submit">发布</button>

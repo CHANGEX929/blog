@@ -38,7 +38,7 @@ public class UeditorController {
 
     private void doExe(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("application/json");
-        String rootPath = request.getSession().getServletContext().getRealPath("/");
+        String rootPath = request.getSession().getServletContext().getRealPath(File.separator);
         try {
             String exec = new ActionEnter(request, rootPath).exec();
             PrintWriter writer = response.getWriter();
