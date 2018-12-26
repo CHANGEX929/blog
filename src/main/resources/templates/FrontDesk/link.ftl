@@ -44,15 +44,15 @@
             var str = ""
 
             for (var i = 0; i < result.dataList.length; i++) {
-                str += "    <div class=\"userItem\">\n" +
-                        "                        <div class=\"userItem--inner\">\n" +
-                        "                            <div class=\"userItem-content\"><img alt='' src=''\n" +
-                        "                                                               class='avatar avatar-64 photo' height='64' width='64'/>\n" +
-                        "                                <div class=\"userItem-name\">\n" +
-                        "                                    <a class=\"link link--primary\" href=\"search.html?tagId=" + result.dataList[i].id + "&searchType=tagId&tagName=" + result.dataList[i].name + "\" >" + result.dataList[i].name + "</a>\n" +
+                str += "    <div class=\"userItem\">" +
+                        "                        <div class=\"userItem--inner\">" +
+                        "                            <div class=\"userItem-content\"><a href='search.html?tagId=" + result.dataList[i].id + "&&searchType=tagId&tagName=" + result.dataList[i].name + "'><img alt='" + result.dataList[i].name + "' src='images/dribbble.png'" +
+                        "                                                               class='avatar avatar-64 photo' height='64' width='64'/></a>" +
+                        "                                <div class=\"userItem-name\">" +
+                        "                                    <a class=\"link link--primary\" href=\"search.html?tagId=" + result.dataList[i].id + "&searchType=tagId&tagName=" + result.dataList[i].name + "\" >" + result.dataList[i].name + "</a>" +
                         "                                </div>\n" +
-                        "                            </div>\n" +
-                        "                        </div>\n" +
+                        "                            </div>" +
+                        "                        </div>" +
                         "                    </div>";
             }
 
