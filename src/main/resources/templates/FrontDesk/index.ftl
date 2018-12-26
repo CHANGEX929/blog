@@ -25,8 +25,7 @@
             for (var i = 0; i < result.dataList.length; i++) {
                 str += "<div class=\"post post-layout-list\" data-aos=\"fade-up\">" +
                         "<div class=\"status_list_item icon_kyubo\">" +
-                        "<div  class=\"status_user\"" +
-                        "style=\"background-image: url(images/book.jpg);\">" +
+                        "<div  class=\"status_user\">" +
                         "<div class=\"status_section\">" +
                         "<a href=\"detail.html?id=" + result.dataList[i].id + "\" class=\"status_btn\">" + result.dataList[i].title + "</a>" +
                         "<p class=\"section_p\">" + result.dataList[i].summary + "</p>" +
