@@ -18,7 +18,7 @@
                         <th class="hidden-sm"><span class="glyphicon glyphicon-tag"></span> <span
                                 class="visible-lg">标签</span></th>
                         <th class="hidden-sm"><span class="glyphicon glyphicon-comment"></span> <span
-                                class="visible-lg">评论</span></th>
+                                class="visible-lg">点击数</span></th>
                         <th><span class="glyphicon glyphicon-time"></span> <span class="visible-lg">日期</span></th>
                         <th><span class="glyphicon glyphicon-lock"></span> <span class="visible-lg">是否加密</span></th>
                         <th><span class="glyphicon glyphicon-pencil"></span> <span class="visible-lg">操作</span></th>
@@ -40,14 +40,14 @@
                             </button>
                         </div>
                     </div>
-                    <ul class="pagination pagenav">
-                        <li class="disabled"><a aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a></li>
+                    <ul class="pagination pagenav" id="page">
+                    <#--   <li class="disabled"><a aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a></li>
                         <li class="active"><a href="#">1</a></li>
                         <li><a href="#">2</a></li>
                         <li><a href="#">3</a></li>
                         <li><a href="#">4</a></li>
                         <li><a href="#">5</a></li>
-                        <li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a></li>
+                        <li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span> </a></li>-->
                     </ul>
                 </nav>
             </footer>
@@ -79,30 +79,68 @@
             }
         });
 
-        getArticleList({"authorId": 1}, function (result) {
+        var currentPage = 1;
+        pageArticleLists();
 
-            var str = "";
-            for (var i = 0; i < result.dataList.length; i++) {
-                var lockValue;
-                if (result.dataList[i].isSecret == 1) {
-                    lockValue = "否";
-                } else {
-                    lockValue = "是";
+        function pageArticleLists() {
+            getArticleList({"authorId": 1, "currentPage": currentPage}, function (result) {
+
+                var str = "";
+                var list = result.data.records;
+                for (var i = 0; i < list.length; i++) {
+                    var lockValue;
+                    if (list[i].isSecret == 1) {
+                        lockValue = "否";
+                    } else {
+                        lockValue = "是";
+                    }
+                    str += "<tr>\n" +
+                            "   <td><input type=\"checkbox\" class=\"input-control\" name=\"checkbox[]\" value=\"\"/></td>\n" +
+                            "   <td class=\"article-title\">" + list[i].title + "</td>\n" +
+                            "   <td>" + list[i].tagName + "</td>\n" +
+                            "   <td class=\"hidden-sm\">" + list[i].keyWord + "</td>\n" +
+                            "   <td class=\"hidden-sm\">" + list[i].readNum + "</td>\n" +
+                            "   <td>" + list[i].createDate + "</td>\n" +
+                            "   <td>" + lockValue + "</td>\n" +
+                            "   <td><a href=\"update-article.html?article&id=" + list[i].id + "\">修改</a> <a rel=\"6\" articleId='" + list[i].id + "' class='deleteArticleBtn'>删除</a></td>\n" +
+                            "</tr>";
                 }
-                str += "<tr>\n" +
-                        "   <td><input type=\"checkbox\" class=\"input-control\" name=\"checkbox[]\" value=\"\"/></td>\n" +
-                        "   <td class=\"article-title\">" + result.dataList[i].title + "</td>\n" +
-                        "   <td>" + result.dataList[i].tagName + "</td>\n" +
-                        "   <td class=\"hidden-sm\">" + result.dataList[i].keyWord + "</td>\n" +
-                        "   <td class=\"hidden-sm\">" + result.dataList[i].readNum + "</td>\n" +
-                        "   <td>" + result.dataList[i].createDate + "</td>\n" +
-                        "   <td>" + lockValue + "</td>\n" +
-                        "   <td><a href=\"update-article.html?article&id=" + result.dataList[i].id + "\">修改</a> <a rel=\"6\" articleId='" + result.dataList[i].id + "' class='deleteArticleBtn'>删除</a></td>\n" +
-                        "</tr>";
-            }
-            $("#article").html(str);
-            $("#articleCount").html(result.dataList.length);
-        })
+                var pageStr = "";
+                for (var i = 1; i <= result.data.pages; i++) {
+
+                    if (i == 1) {
+
+                        if (currentPage == i) {
+
+                            pageStr += "<li class=\"disabled\"><a aria-label=\"Previous\"> <span aria-hidden=\"true\">&laquo;</span> </a></li>";
+                        } else {
+
+                            pageStr += "<li class=\"canPre\"><a aria-label=\"Previous\"> <span aria-hidden=\"true\">&laquo;</span> </a></li>";
+                        }
+                    }
+
+                    if (currentPage == i) {
+                        pageStr += "<li class=\"active\"><a>" + i + "</a></li>";
+                    } else {
+                        pageStr += "<li class=\"pageBtn\"><a page=" + i + " + >" + i + "</a></li>";
+                    }
+
+                    if (i == result.data.pages) {
+
+                        if (currentPage == i) {
+                            pageStr += "<li class=\"disabled\"><a href=\"#\" aria-label=\"Next\"> <span aria-hidden=\"true\">&raquo;</span> </a></li>";
+                        } else {
+                            pageStr += "<li class=\"canNext\"><a aria-label=\"Next\"> <span aria-hidden=\"true\">&raquo;</span> </a></li>";
+                        }
+                    }
+                }
+
+
+                $("#article").html(str);
+                $("#page").html(pageStr);
+                $("#articleCount").html(list.length);
+            })
+        }
 
         $("#article").on("click", ".deleteArticleBtn", function (e) {
             var id = $(e.target).attr("articleId");
@@ -112,6 +150,21 @@
                     window.location.reload();
                 })
             }
+        })
+
+        $("#page").on("click", ".canPre", function (e) {
+            currentPage--;
+            pageArticleLists();
+        })
+
+        $("#page").on("click", ".canNext", function (e) {
+            currentPage++;
+            pageArticleLists();
+        })
+
+        $("#page").on("click", ".pageBtn", function (e) {
+            currentPage = $(e.target).attr("page");
+            pageArticleLists();
         })
 
     });

@@ -1,15 +1,17 @@
 package com.changex.blog.controller;
 
-import com.alibaba.fastjson.JSON;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.changex.blog.core.pojo.dto.BlogArticleDTO;
 import com.changex.blog.core.pojo.vo.BlogArticleVo;
 import com.changex.blog.core.resource.result.*;
 import com.changex.blog.service.TBlogArticleService;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
@@ -35,23 +37,23 @@ public class BlogArticleController {
 
     @ApiOperation(value = "根据作者ID查找文章列表")
     @GetMapping("/byAuthorId")
-    public ListResponseResult<BlogArticleVo> listByAuthorId(@ApiParam(value = "文章") BlogArticleDTO blogArticle) {
+    public DataResponseResult<IPage<BlogArticleVo>> listByAuthorId(@ApiParam(value = "文章") BlogArticleDTO blogArticle) {
 
-        return ResponseResultFactory.getList(blogArticleService.listByAuthorId(blogArticle));
+        return ResponseResultFactory.getData(blogArticleService.listByAuthorId(blogArticle));
     }
 
-    @ApiOperation(value = "根据关键词搜索列表")
+    @ApiOperation(value = "根据关键词分页搜索列表")
     @GetMapping("/byKeyWord")
-    public ListResponseResult<BlogArticleVo> listByKeyWord(@ApiParam(value = "文章") BlogArticleDTO blogArticle) {
+    public DataResponseResult<IPage<BlogArticleVo>> listByKeyWord(@ApiParam(value = "文章") BlogArticleDTO blogArticle) {
 
-        return ResponseResultFactory.getList(blogArticleService.listByKeyWord(blogArticle));
+        return ResponseResultFactory.getData(blogArticleService.listByKeyWord(blogArticle));
     }
 
-    @ApiOperation(value = "根据分类搜索文章列表")
+    @ApiOperation(value = "根据分类分页搜索文章列表")
     @GetMapping("/byCategoryId")
-    public ListResponseResult<BlogArticleVo> listByKeyCategoryId(@ApiParam(value = "文章") BlogArticleDTO blogArticle) {
+    public DataResponseResult<IPage<BlogArticleVo>> listByCategoryId(@ApiParam(value = "文章") BlogArticleDTO blogArticle) {
 
-        return ResponseResultFactory.getList(blogArticleService.listByTagId(blogArticle));
+        return ResponseResultFactory.getData(blogArticleService.listByTagId(blogArticle));
     }
 
     @ApiOperation(value = "根据文章ID查找文章")

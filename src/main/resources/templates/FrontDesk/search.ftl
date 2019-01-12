@@ -60,15 +60,15 @@
 
 
         function showData(title, showSearch, result) {
-
+            var list = result.data.records;
             $("#title").html(title);
             $("#showSearch").html(showSearch);
-            $("#articleCount").html(result.dataList.length);
+            $("#articleCount").html(list.length);
 
             var str = "";
-            for (var i = 0; i < result.dataList.length; i++) {
+            for (var i = 0; i < list.length; i++) {
 
-                var createDate = result.dataList[i].createDate
+                var createDate = list[i].createDate
                 createDate = String(createDate).split("T")[0];
 
                 str += "        <div class=\"posts-list js-posts\">\n" +
@@ -78,12 +78,12 @@
                         "                </div>\n" +
                         "                <h2 class=\"archive-title\" style=\"color: #\">\n" +
                         "          <span>\n" +
-                        "          <a href=\"detail.html?id=" + result.dataList[i].id + "\">" + result.dataList[i].title + "</a>\n" +
+                        "          <a href=\"detail.html?id=" +list[i].id + "\">" + list[i].title + "</a>\n" +
                         "          </span>\n" +
                         "                    <div class=\"post-time\">" + createDate + "</div>\n" +
                         "                </h2>\n" +
                         "                <div class=\"post-category\">\n" +
-                        "                    <a href=\"javascript:;\" rel=\"category tag\">" + result.dataList[i].tagName + "</a>\n" +
+                        "                    <a href=\"javascript:;\" rel=\"category tag\">" + list[i].tagName + "</a>\n" +
                         "                </div>\n" +
                         "            </div>\n" +
                         "        </div>"

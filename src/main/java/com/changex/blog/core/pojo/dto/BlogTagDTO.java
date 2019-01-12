@@ -10,7 +10,7 @@ import lombok.Data;
  */
 @ApiModel(value = "目录")
 @Data
-public class BlogTagDTO  {
+public class BlogTagDTO extends PageDTO {
     @ApiModelProperty(value = "id")
     private Integer id;
     @ApiModelProperty(value = "作者ID")

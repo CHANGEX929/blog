@@ -1,4 +1,4 @@
-<div class="Yarn_Background" style="background: black;"></div>
+<div class="Yarn_Background" style="background-image: url( images/banner1.jpg);"></div>
 <form class="js-search search-form search-form--modal" method="get" action="search.html" role="search">
     <div class="search-form__inner">
         <div>
@@ -39,6 +39,14 @@
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78">
                                 <a style="color: #ffffff;font-weight: normal;" href="link.html">分类</a>
                             </li>
+                            <li id="menu-item-78"
+                     <#--           class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78">
+                                <a style="color: #ffffff;font-weight: normal;" href="gustbook.html">留言</a>
+                            </li>-->
+                            <li id="menu-item-78"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78">
+                                <a style="color: #ffffff;font-weight: normal;" href="about.html">ABOUT</a>
+                            </li>
                         <#--        <li id="menu-item-252" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-252">
                                     <a href="archives.html">归档</a>
                                     <ul class="sub-menu">
@@ -76,4 +84,4 @@
         <div id="particles-js"></div>
     </div>
 </header>
-<div id="main" class="content" style="border: 10px solid black;background-color: gray;">
+<div id="main" class="content" >

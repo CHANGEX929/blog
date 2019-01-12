@@ -710,11 +710,10 @@ input[type="search"]::-webkit-search-decoration {
 .p-header .p-image {
     position: fixed;
     width: 100%;
-    height: 100%;
+    height: 40%;
     -moz-background-size: cover;
     -o-background-size: cover;
     -webkit-background-size: cover;
-    background-size: cover;
     background-position: top center;
     z-index: -999;
 }
@@ -735,7 +734,6 @@ input[type="search"]::-webkit-search-decoration {
     width: 100%;
     height: 400px;
     box-sizing: border-box;
-    background-image: url(../images/CHANGEX2.png);
     background-position: center
 }
 
@@ -761,7 +759,7 @@ input[type="search"]::-webkit-search-decoration {
 }
 
 #footer .decor-wrapper {
-    top: 0
+    top: 0;
 }
 
 .decor {
@@ -781,7 +779,7 @@ input[type="search"]::-webkit-search-decoration {
 }
 
 #footer {
-    color: #fff
+    color: black;
 }
 
 #footer {
@@ -789,7 +787,7 @@ input[type="search"]::-webkit-search-decoration {
     position: relative;
     width: 100%;
     display: block;
-    z-index: 2
+    z-index: 2;
 }
 
 #footer .container {

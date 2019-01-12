@@ -22,13 +22,14 @@
 
         getArticleList({"authorId": 1}, function (result) {
             var str = "";
-            for (var i = 0; i < result.dataList.length; i++) {
+            var list = result.data.records;
+            for (var i = 0; i < list.length; i++) {
                 str += "<div class=\"post post-layout-list\" data-aos=\"fade-up\">" +
                         "<div class=\"status_list_item icon_kyubo\">" +
                         "<div  class=\"status_user\">" +
                         "<div class=\"status_section\">" +
-                        "<a href=\"detail.html?id=" + result.dataList[i].id + "\" class=\"status_btn\">" + result.dataList[i].title + "</a>" +
-                        "<p class=\"section_p\">" + result.dataList[i].summary + "</p>" +
+                        "<a href=\"detail.html?id=" + list[i].id + "\" class=\"status_btn\">" + list[i].title + "</a>" +
+                        "<p class=\"section_p\">" + list[i].summary + "</p>" +
                         "</div>" +
                         "</div>" +
                         "</div>" +

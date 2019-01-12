@@ -8,6 +8,8 @@ import java.io.File;
  */
 public class Constant {
 
+    public static final Integer PAGE_SIZE = 20;
+
     public static final String FRONT_DESK = "FrontDesk/";
 
     public static final String BACK_DESK = "back-stage/";

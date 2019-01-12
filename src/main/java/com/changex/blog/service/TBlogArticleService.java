@@ -1,5 +1,6 @@
 package com.changex.blog.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.changex.blog.core.pojo.TBlogArticle;
 import com.changex.blog.core.pojo.dto.BlogArticleDTO;
@@ -14,11 +15,11 @@ import java.util.List;
 public interface TBlogArticleService extends IService<TBlogArticle> {
     Integer save(BlogArticleDTO articleDTO);
 
-    List<BlogArticleVo> listByAuthorId(BlogArticleDTO articleDTO);
+    IPage<BlogArticleVo> listByAuthorId(BlogArticleDTO articleDTO);
 
-    List<BlogArticleVo> listByTagId(BlogArticleDTO articleDTO);
+    IPage<BlogArticleVo> listByTagId(BlogArticleDTO articleDTO);
 
-    List<BlogArticleVo> listByKeyWord(BlogArticleDTO articleDTO);
+    IPage<BlogArticleVo> listByKeyWord(BlogArticleDTO articleDTO);
 
     BlogArticleVo getById(BlogArticleDTO articleDTO);
 

@@ -10,7 +10,7 @@ import lombok.Data;
  */
 @ApiModel(value = "目录")
 @Data
-public class UserDTO {
+public class UserDTO extends PageDTO {
 
     @ApiModelProperty(value = "账号")
     private String userName;

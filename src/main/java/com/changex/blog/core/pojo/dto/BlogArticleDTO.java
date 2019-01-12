@@ -2,7 +2,10 @@ package com.changex.blog.core.pojo.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @Author Xie Chenxi
@@ -10,7 +13,7 @@ import lombok.Data;
  */
 @ApiModel(value = "文章")
 @Data
-public class BlogArticleDTO {
+public class BlogArticleDTO extends PageDTO {
 
     @ApiModelProperty(value = "文章ID")
     private Integer id;
@@ -32,6 +35,4 @@ public class BlogArticleDTO {
     private Integer isSecret;
     @ApiModelProperty(value = "阅读次数")
     private Integer readNum;
-
-
 }

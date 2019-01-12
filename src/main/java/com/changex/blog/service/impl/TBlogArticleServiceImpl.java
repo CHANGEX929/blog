@@ -1,20 +1,24 @@
 package com.changex.blog.service.impl;
 
-import com.alibaba.fastjson.JSON;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.changex.blog.config.Constant;
 import com.changex.blog.core.pojo.TBlogArticle;
+import com.changex.blog.core.pojo.TBlogTag;
 import com.changex.blog.core.pojo.dto.BlogArticleDTO;
 import com.changex.blog.core.pojo.vo.BlogArticleVo;
 import com.changex.blog.mapper.base.TBlogArticleMapper;
 import com.changex.blog.service.TBlogArticleService;
-import com.changex.blog.tools.DateUtils;
-import com.fasterxml.jackson.databind.BeanProperty;
+import com.changex.blog.service.TBlogTagService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @Author Xie Chenxi
@@ -24,7 +28,7 @@ import java.util.List;
 public class TBlogArticleServiceImpl extends ServiceImpl<TBlogArticleMapper, TBlogArticle> implements TBlogArticleService {
 
     @Resource
-    private TBlogArticleMapper articleMapper;
+    private TBlogTagService blogTagService;
 
     @Override
     public Integer save(BlogArticleDTO articleDTO) {
@@ -43,27 +47,43 @@ public class TBlogArticleServiceImpl extends ServiceImpl<TBlogArticleMapper, TBl
     }
 
     @Override
-    public List<BlogArticleVo> listByAuthorId(BlogArticleDTO articleDTO) {
+    public IPage<BlogArticleVo> listByAuthorId(BlogArticleDTO articleDTO) {
 
-        return articleMapper.listByAuthorId(articleDTO);
+        return convertToBlogArticleVoIPage(
+                page(
+                        new Page<>(articleDTO.getCurrentPage(), Constant.PAGE_SIZE),
+                        Wrappers.query(TBlogArticle.builder().authorId(articleDTO.getAuthorId()).build()).orderByDesc("create_date")
+                )
+                , articleDTO);
     }
 
     @Override
-    public List<BlogArticleVo> listByTagId(BlogArticleDTO articleDTO) {
+    public IPage<BlogArticleVo> listByTagId(BlogArticleDTO articleDTO) {
 
-        return articleMapper.listByTagId(articleDTO);
+        return convertToBlogArticleVoIPage(
+                page(
+                        new Page<>(articleDTO.getCurrentPage(), Constant.PAGE_SIZE),
+                        Wrappers.query(TBlogArticle.builder().authorId(articleDTO.getAuthorId()).tagId(articleDTO.getTagId()).build()).orderByDesc("create_date")
+                )
+                , articleDTO);
     }
 
     @Override
-    public List<BlogArticleVo> listByKeyWord(BlogArticleDTO articleDTO) {
+    public IPage<BlogArticleVo> listByKeyWord(BlogArticleDTO articleDTO) {
 
-        return articleMapper.listByKeyWord("%" + articleDTO.getKeyWord() + "%");
+
+        return convertToBlogArticleVoIPage(
+                page(
+                        new Page<>(articleDTO.getCurrentPage(), Constant.PAGE_SIZE),
+                        Wrappers.query(TBlogArticle.builder().authorId(articleDTO.getAuthorId()).build()).like("concat(lower(key_word),lower(title))", articleDTO.getKeyWord().toLowerCase())
+                )
+                , articleDTO);
     }
 
     @Override
     public BlogArticleVo getById(BlogArticleDTO articleDTO) {
 
-        BlogArticleVo blogArticleVo = articleMapper.getById(articleDTO);
+        BlogArticleVo blogArticleVo = super.baseMapper.getById(articleDTO);
 
         //增加阅读数目
         if (blogArticleVo != null) {
@@ -91,5 +111,36 @@ public class TBlogArticleServiceImpl extends ServiceImpl<TBlogArticleMapper, TBl
     public boolean delete(BlogArticleDTO articleDTO) {
 
         return super.removeById(articleDTO.getId());
+    }
+
+    private IPage<BlogArticleVo> convertToBlogArticleVoIPage(IPage<TBlogArticle> articleIPage, BlogArticleDTO articleDTO) {
+
+        Map<Integer, String> tagMap = blogTagService.listByAuthorId(articleDTO.getAuthorId()).stream().collect(Collectors.toMap(TBlogTag::getId, TBlogTag::getName));
+
+        IPage<BlogArticleVo> articleVoIPage = new Page<>();
+        articleVoIPage.setTotal(articleIPage.getTotal());
+        articleVoIPage.setSize(articleIPage.getSize());
+        articleVoIPage.setCurrent(articleIPage.getCurrent());
+        articleVoIPage.setRecords(articleIPage.getRecords().stream().map(o -> convertToBlogArticleVo(o, tagMap)).collect(Collectors.toList()));
+        return articleVoIPage;
+    }
+
+    private BlogArticleVo convertToBlogArticleVo(TBlogArticle blogArticle, Map<Integer, String> tagMap) {
+        return new BlogArticleVo(
+                blogArticle.getId()
+                , blogArticle.getTitle()
+                , blogArticle.getAuthorId()
+                , blogArticle.getReadNum()
+                , blogArticle.getContent()
+                , blogArticle.getPicUrl()
+                , blogArticle.getTagId()
+                , blogArticle.getKeyWord()
+                , blogArticle.getSummary()
+                , blogArticle.getIsSecret()
+                , blogArticle.getCreateDate()
+                , blogArticle.getUpdateDate()
+                , blogArticle.getIsValid()
+                , tagMap.get(blogArticle.getTagId())
+        );
     }
 }

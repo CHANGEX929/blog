@@ -1238,18 +1238,7 @@ input[type="search"]::-webkit-search-decoration {
 	-webkit-appearance: none
 }
 
-.Yarn_Background,
-.p-header .p-image {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	-webkit-background-size: cover;
-	background-size: cover;
-	background-position: top center;
-	z-index: -999;
-}
+
 
 #particles-js {
 	position: absolute;

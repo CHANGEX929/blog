@@ -5,7 +5,10 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -16,6 +19,9 @@ import java.time.LocalDateTime;
  */
 @Data
 @TableName(value = "sys_role")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class TSysRole extends Model<TSysRole> {
     private Integer id;
     private String name;

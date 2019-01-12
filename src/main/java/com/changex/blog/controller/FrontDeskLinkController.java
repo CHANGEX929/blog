@@ -51,4 +51,9 @@ public class FrontDeskLinkController {
     public String search() {
         return Constant.FRONT_DESK + "search";
     }
+
+    @GetMapping("about.html")
+    public String about() {
+        return Constant.FRONT_DESK + "about";
+    }
 }

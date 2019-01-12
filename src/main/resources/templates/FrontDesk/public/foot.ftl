@@ -13,22 +13,22 @@
             <path d="M48 48 L50 51 L52 48 L48 48" fill="rgba(0,0,0, 1)"></path>
         </svg>
     </div>-->
-    <div class="socialize" data-aos="zoom-in">
-     <#--   <li>
+<#--    <div class="socialize" data-aos="zoom-in">
+     &lt;#&ndash;   <li>
             <a title="weibo" class="socialicon" href=""><i class="iconfont" aria-hidden="true">&#xe601;</i></a>
-        </li>-->
+        </li>&ndash;&gt;
         <li class="wechat">
             <a class="socialicon"><i class="iconfont">&#xe609;</i></a>
             <div class="wechatimg"><img src="images/changex-wechat.png"></div>
         </li>
- <#--       <li>
+ &lt;#&ndash;       <li>
             <a title="QQ" class="socialicon" href="" target="_blank">
                 <i class="iconfont" aria-hidden="true">&#xe616;</i></a>
-        </li>-->
-    </div>
+        </li>&ndash;&gt;
+    </div>-->
     <div class="cr">
         Copyright&copy;2018. Design by
-        <a href="javascript:;">CHANGEX</a>
+        <a href="https://github.com/CHANGEX929/blog/tree/master" style="color: black;">CHANGEX</a>
     </div>
     <script type='text/javascript' src='../../js/jquery-3.3.1.min.js'></script>
     <script type='text/javascript' src='../../js/plugins.js'></script>
