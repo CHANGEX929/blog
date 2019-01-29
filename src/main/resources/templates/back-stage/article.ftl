@@ -128,7 +128,7 @@
                     if (i == result.data.pages) {
 
                         if (currentPage == i) {
-                            pageStr += "<li class=\"disabled\"><a href=\"#\" aria-label=\"Next\"> <span aria-hidden=\"true\">&raquo;</span> </a></li>";
+                            pageStr += "<li class=\"disabled\"><a aria-label=\"Next\"> <span aria-hidden=\"true\">&raquo;</span> </a></li>";
                         } else {
                             pageStr += "<li class=\"canNext\"><a aria-label=\"Next\"> <span aria-hidden=\"true\">&raquo;</span> </a></li>";
                         }
