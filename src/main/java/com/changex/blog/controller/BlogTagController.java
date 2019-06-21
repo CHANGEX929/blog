@@ -3,14 +3,13 @@ package com.changex.blog.controller;
 import com.alibaba.fastjson.JSON;
 import com.changex.blog.core.pojo.TBlogTag;
 import com.changex.blog.core.pojo.dto.BlogTagDTO;
-import com.changex.blog.core.resource.result.IdResponseResult;
-import com.changex.blog.core.resource.result.ListResponseResult;
-import com.changex.blog.core.resource.result.ResponseResult;
-import com.changex.blog.core.resource.result.ResponseResultFactory;
+import com.changex.blog.core.resource.result.*;
 import com.changex.blog.service.TBlogTagService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

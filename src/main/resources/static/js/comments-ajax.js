@@ -10,18 +10,19 @@ while (i <= len && got == -1) {
     i++;
 }
 var edit_mode = '1', // 再編輯模式 ( '1'=開; '0'=不開 )
-        ajax_php_url = js_url.replace('-ajax.js','-ajax.php'),
-        wp_url = js_url.substr(0, js_url.indexOf('wp-content')),
-        pic_sb = wp_url + 'wp-admin/images/wpspin_dark.gif', // 提交 icon
-        pic_no = wp_url + 'wp-admin/images/no.png',      // 錯誤 icon
-        pic_ys = wp_url + 'wp-admin/images/yes.png',     // 成功 icon
-        txt1 = '<div id="loading"></div>',
-        txt2 = '<div id="error">#</div>',
-        txt3 = '"> <div id="edita">您的评论已经提交成功',
-        edt1 = ',如有异议刷新前你可以再次 <a rel="nofollow" class="comment-reply-link_a" href="#edit" onclick=\'return addComment.moveForm("',
-        edt2 = ')\'>[修改评论]</a></div> ',
-        cancel_edit = '[取消]',
-        edit, num = 1, comm_array=[]; comm_array.push('');
+    ajax_php_url = js_url.replace('-ajax.js', '-ajax.php'),
+    wp_url = js_url.substr(0, js_url.indexOf('wp-content')),
+    pic_sb = wp_url + 'wp-admin/images/wpspin_dark.gif', // 提交 icon
+    pic_no = wp_url + 'wp-admin/images/no.png',      // 錯誤 icon
+    pic_ys = wp_url + 'wp-admin/images/yes.png',     // 成功 icon
+    txt1 = '<div id="loading"></div>',
+    txt2 = '<div id="error">#</div>',
+    txt3 = '"> <div id="edita">您的评论已经提交成功',
+    edt1 = ',如有异议刷新前你可以再次 <a rel="nofollow" class="comment-reply-link_a" href="#edit" onclick=\'return addComment.moveForm("',
+    edt2 = ')\'>[修改评论]</a></div> ',
+    cancel_edit = '[取消]',
+    edit, num = 1, comm_array = [];
+comm_array.push('');
 
 jQuery(document).ready(function ($) {
     $comments = $('#comments-title'); // 評論數的 ID
@@ -35,12 +36,12 @@ jQuery(document).ready(function ($) {
     $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
 
     /** submit */
-    $('#commentform').submit(function () {
+  /*  $('#commentform').submit(function () {
         $('#loading').fadeIn();
         $submit.attr('disabled', true).fadeTo('slow', 0.5);
         if (edit) $('#comment').after('<input type="text" name="edit_id" id="edit_id" value="' + edit + '" style="display:none;" />');
 
-        /** Ajax */
+        /!** Ajax *!/
         $.ajax({
             url: ajax_php_url,
             data: $(this).serialize(),
@@ -61,7 +62,9 @@ jQuery(document).ready(function ($) {
                 $('textarea').each(function () {
                     this.value = ''
                 });
-                var t = addComment, cancel = t.I('cancel-comment-reply-link'), temp = t.I('wp-temp-form-div'), respond = t.I(t.respondId), post = t.I('comment_post_ID').value, parent = t.I('comment_parent').value;
+                var t = addComment, cancel = t.I('cancel-comment-reply-link'), temp = t.I('wp-temp-form-div'),
+                    respond = t.I(t.respondId), post = t.I('comment_post_ID').value,
+                    parent = t.I('comment_parent').value;
 
 // comments
                 if (!edit && $comments.length) {
@@ -71,7 +74,7 @@ jQuery(document).ready(function ($) {
 
 // show comment
                 new_htm = '" id="new_comm_' + num + '"></';
-                new_htm = ( parent == '0' ) ? ('\n<ol style="clear:both;" class="commentwrap' + new_htm + 'ol>') : ('\n<ul class="children' + new_htm + 'ul>');
+                new_htm = (parent == '0') ? ('\n<ol style="clear:both;" class="commentwrap' + new_htm + 'ol>') : ('\n<ul class="children' + new_htm + 'ul>');
 
                 ok_htm = '\n<span id="success_' + num + txt3;
                 if (edit_mode == '1') {
@@ -85,13 +88,13 @@ jQuery(document).ready(function ($) {
                 $('#new_comm_' + num + ' li').append(ok_htm);
                 $('#new_comm_' + num).fadeIn(600);
 
-/*                 $body.animate({scrollTop: $('#new_comm_' + num).offset().top - 200}, 900);
- */ 
-				countdown();
+                /!*                 $body.animate({scrollTop: $('#new_comm_' + num).offset().top - 200}, 900);
+                 *!/
+                countdown();
                 num++;
                 edit = '';
                 $('*').remove('#edit_id');
-				cancel.style.display = 'none';
+                cancel.style.display = 'none';
                 cancel.onclick = null;
                 t.I('comment_parent').value = '0';
                 if (temp && respond) {
@@ -101,12 +104,13 @@ jQuery(document).ready(function ($) {
             }
         }); // end Ajax
         return false;
-    }); // end submit
+    }); // end submit*/
 
     /** comment-reply.dev.js */
-    addComment = {
+/*    addComment = {
         moveForm: function (commId, parentId, respondId, postId, num) {
-            var t = this, div, comm = t.I(commId), respond = t.I(respondId), cancel = t.I('cancel-comment-reply-link'), parent = t.I('comment_parent'), post = t.I('comment_post_ID');
+            var t = this, div, comm = t.I(commId), respond = t.I(respondId), cancel = t.I('cancel-comment-reply-link'),
+                parent = t.I('comment_parent'), post = t.I('comment_post_ID');
             if (edit) exit_prev_edit();
             num ? (
                 t.I('comment').value = comm_array[num],
@@ -133,8 +137,8 @@ jQuery(document).ready(function ($) {
                     temp.parentNode.removeChild(temp)
             ) : comm.parentNode.insertBefore(respond, comm.nextSibling);
 
-/*             $body.animate({scrollTop: $('#respond').offset().top - 180}, 400);
- */
+            /!*             $body.animate({scrollTop: $('#respond').offset().top - 180}, 400);
+             *!/
             if (post && postId) post.value = postId;
             parent.value = parentId;
             cancel.style.display = '';
@@ -165,7 +169,7 @@ jQuery(document).ready(function ($) {
         I: function (e) {
             return document.getElementById(e);
         }
-    }; // end addComment
+    }; // end addComment*/
 
     function exit_prev_edit() {
         $new_comm.show();

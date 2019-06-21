@@ -40,12 +40,12 @@
                                 <a style="color: #ffffff;font-weight: normal;" href="link.html">分类</a>
                             </li>
                             <li id="menu-item-78"
-                     <#--           class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78">
-                                <a style="color: #ffffff;font-weight: normal;" href="gustbook.html">留言</a>
-                            </li>-->
+                        <#--           class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78">
+                                   <a style="color: #ffffff;font-weight: normal;" href="gustbook.html">留言</a>
+                               </li>-->
                             <li id="menu-item-78"
                                 class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78">
-                                <a style="color: #ffffff;font-weight: normal;" href="about.html">ABOUT</a>
+                                <a style="color: #ffffff;font-weight: normal;" href="about.html">关于</a>
                             </li>
                         <#--        <li id="menu-item-252" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-252">
                                     <a href="archives.html">归档</a>
@@ -84,4 +84,4 @@
         <div id="particles-js"></div>
     </div>
 </header>
-<div id="main" class="content" >
+<div id="main" class="content">

@@ -118,5 +118,10 @@ public class BackStageLinkController {
         return Constant.BACK_DESK + "update-flink";
     }
 
+    @GetMapping("/htmlPage.html")
+    public String htmlPage() {
+        return Constant.BACK_DESK + "htmlPage";
+    }
+
 
 }

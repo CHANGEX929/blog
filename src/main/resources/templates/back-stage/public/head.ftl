@@ -110,6 +110,13 @@
                         </li>-->
             </ul>
             <ul class="nav nav-sidebar">
+                <li <#if RequestParameters['htmlPage']??>
+
+                    class="active"
+
+                </#if>><a href="htmlPage.html?htmlPage">页面</a></li>
+            </ul>
+            <ul class="nav nav-sidebar">
                 <li <#if RequestParameters['linker']??>
 
                     class="active"

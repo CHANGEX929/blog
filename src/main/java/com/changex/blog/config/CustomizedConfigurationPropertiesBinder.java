@@ -2,6 +2,7 @@ package com.changex.blog.config;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyEditorRegistry;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.bind.BindHandler;
 import org.springframework.boot.context.properties.bind.Bindable;
 import org.springframework.boot.context.properties.bind.Binder;

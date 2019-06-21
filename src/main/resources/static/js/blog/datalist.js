@@ -113,7 +113,35 @@ function doLogin(data, callback) {
 }
 
 function doLogout(data, callback) {
-    doAjax(loginUrl+"/logout", "POST", data, function (result) {
+    doAjax(loginUrl + "/logout", "POST", data, function (result) {
         callback(result);
     })
+}
+
+var commentsUrl = "/comments";
+
+function addComment(data, callback) {
+    doAjax(commentsUrl + "/comment", "POST", data, function (result) {
+        callback(result);
+    });
+}
+
+function getCommentsByArticleId(data, callback) {
+    doAjax(commentsUrl + "/articleId", "GET", data, function (result) {
+        callback(result);
+    });
+}
+
+var htmlPageUrl = "/htmlPages";
+
+function mergeHtmlPage(data, callback) {
+    doAjax(htmlPageUrl + "/htmlPage", "POST", data, function (result) {
+        callback(result);
+    });
+}
+
+function getHtmlPageByType(data, callback) {
+    doAjax(htmlPageUrl + "/htmlPage/type", "GET", data, function (result) {
+        callback(result);
+    });
 }
