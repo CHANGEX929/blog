@@ -56,9 +56,9 @@ public class FrontDeskLinkController {
     public String about() {
         return Constant.FRONT_DESK + "about";
     }
-
-    @GetMapping("chating.html")
+/*
+    @GetMapping("chating.ftl")
     public String chating() {
         return Constant.FRONT_DESK + "chating";
-    }
+    }*/
 }

@@ -17,13 +17,13 @@ public class AliyunOssUtils {
 
     }
 
-    private static final String ACCESS_KEY_ID = "";
-    private static final String ACCESS_KEY_SECRET = "";
+    private static final String ACCESS_KEY_ID = "LTAI8EVf6JFCeu8E";
+    private static final String ACCESS_KEY_SECRET = "AibCCaYMiifyUw42RthH7xa25iWU86";
     /**
      * OSS的Region域名
      */
-    private static final String END_POINT = "";
-    private static final String BUCKET = "";
+    private static final String END_POINT = "http://oss-cn-beijing.aliyuncs.com";
+    private static final String BUCKET = "changex";
 
     /**
      * @param bucketName

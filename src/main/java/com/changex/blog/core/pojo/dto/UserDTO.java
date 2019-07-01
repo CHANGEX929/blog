@@ -18,4 +18,6 @@ public class UserDTO extends PageDTO {
     private String password;
     @ApiModelProperty(value = "角色Id")
     private Integer roleId;
+    @ApiModelProperty(value = "用户Id")
+    private Integer id;
 }

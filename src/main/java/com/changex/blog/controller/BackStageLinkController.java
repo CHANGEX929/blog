@@ -123,5 +123,8 @@ public class BackStageLinkController {
         return Constant.BACK_DESK + "htmlPage";
     }
 
-
+    @GetMapping("/chating.html")
+    public String chating() {
+        return Constant.BACK_DESK + "chating";
+    }
 }

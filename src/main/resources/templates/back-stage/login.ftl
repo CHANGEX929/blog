@@ -68,7 +68,9 @@
     //登陆
     function login(userName, passWord) {
         doLogin({"userName": userName, "passWord": getPassWord(passWord)}, function (result) {
-            if (result.data) {
+            if (result.data !=0) {
+                var storage = window.localStorage;
+                storage.nowUserId = result.data;//id存入缓存
                 window.location.href = "article.html?article";
             } else {
                 $('#signinSubmit').attr("disabled", false);

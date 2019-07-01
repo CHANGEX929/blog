@@ -145,3 +145,14 @@ function getHtmlPageByType(data, callback) {
         callback(result);
     });
 }
+
+var chatUrl ="/chat";
+
+var userUrl = "/users";
+//获取聊天用户
+function getChatUserList(callback) {
+    console.log("来了1");
+    doAjax(userUrl + "/queryUserList", "POST", "", function (result) {
+        callback(result);
+    });
+}

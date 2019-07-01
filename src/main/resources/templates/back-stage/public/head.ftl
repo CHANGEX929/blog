@@ -13,6 +13,9 @@
     <link rel="stylesheet" type="text/css" href="../../css/style.css">
     <link rel="stylesheet" type="text/css" href="../../css/font-awesome.min.css">
     <link rel="apple-touch-icon-precomposed" href="../../images/icon/icon.png">
+    <link rel="stylesheet" type="text/css" href="../../font_Icon/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="../../css/chat.css">
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
     <script type='text/javascript' src='../../js/jquery-3.3.1.min.js'></script>
 </head>
 
@@ -122,6 +125,13 @@
                     class="active"
 
                 </#if>><a href="flink.html?linker">友情连接</a></li>
+            </ul>
+            <ul class="nav nav-sidebar">
+                <li <#if RequestParameters['chat']??>
+
+                    class="active"
+
+                </#if>><a href="chating.html?chat">聊天</a></li>
             </ul>
         <#--           <ul class="nav nav-sidebar">
                        <li <#if RequestParameters['user']??>

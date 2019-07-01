@@ -15,15 +15,17 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
-@TableName(value = "sys_user")
+@TableName(value = "blog_chat")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class TSysUser extends Model<TSysUser> {
+public class TBlogChat extends Model<TBlogChat> {
+
     private Integer id;
-    private String userName;
-    private String password;
-    private Integer roleId;
+    private Integer senderId;
+    private String sendMsg;
+    private Integer sendType;
+    private Integer receiverId;
     @TableField(value = "create_date", fill = FieldFill.INSERT)
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private LocalDateTime createDate;
@@ -32,6 +34,7 @@ public class TSysUser extends Model<TSysUser> {
     private LocalDateTime updateDate;
     @TableLogic
     private Integer isValid;
+
     @Override
     protected Serializable pkVal() {
         return this.id;
