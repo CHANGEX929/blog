@@ -9,29 +9,18 @@
     <div class="chatBox" ref="chatBox">
         <div class="chatBox-head">
             <div class="chatBox-head-one">
-                聊天demo  
+                CHATING
                 <div class="chat-close" style="margin: 10px 10px 0 0;font-size: 14px">关闭</div>
             </div>
             <div class="chatBox-head-two">
                 <div class="chat-return">返回</div>
                 <div class="chat-people">
-                    <div class="ChatInfoHead">
-                        <img src="" alt="头像"/>
-                    </div>
-                    <div class="ChatInfoName">这是用户的名字，看看名字到底能有多长</div>
                 </div>
                 <div class="chat-close">关闭</div>
             </div>
         </div>
         <div class="chatBox-info">
-            <div class="chatBox-list"   >
-                <!-- <div class="chat-list-people">
-                    <div><img src="img/icon01.png" alt="头像"/></div>
-                    <div class="chat-name">
-                        <p>自酌一杯酒</p>
-                    </div>
-                    <div class="message-num">10</div>
-                </div> -->
+            <div class="chatBox-list">
                 <div class="chat-list-people">
                     <div><img src="img/icon02.png" alt="头像"/></div>
                     <div class="chat-name">
@@ -39,67 +28,10 @@
                     </div>
                     <div class="message-num">8</div>
                 </div>
-                <#--<div class="chat-list-people">
-                    <div><img src="img/icon03.png" alt="头像"/></div>
-                    <div class="chat-name">
-                        <p>威士忌</p>
-                    </div>
-                    <div class="message-num">2</div>
-                </div>
-                <div class="chat-list-people">
-                    <div><img src="img/icon01.png" alt="头像"/></div>
-                    <div class="chat-name">
-                        <p>荷兰金酒</p>
-                    </div>
-                    <div class="message-num">20</div>
-                </div>
-                <div class="chat-list-people">
-                    <div><img src="img/icon03.png" alt="头像"/></div>
-                    <div class="chat-name">
-                        <p>朗姆酒</p>
-                    </div>
-                    <div class="message-num">10</div>
-                </div>
-                -->
             </div>
             <div class="chatBox-kuang" ref="chatBoxkuang">
                 <div class="chatBox-content">
                     <div class="chatBox-content-demo" id="chatBox-content-demo" userId="0">
-
-                        <#--div class="clearfloat">
-                            <div class="author-name">
-                                <small class="chat-date">2017-12-02 14:26:58</small>
-                            </div>
-                            <div class="left">
-                                <div class="chat-avatars"><img src="img/icon01.png" alt="头像"/></div>
-                                <div class="chat-message">
-                                    给你看张图
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="clearfloat">
-                            <div class="author-name">
-                                <small class="chat-date">2017-12-02 14:26:58</small>
-                            </div>
-                            <div class="left">
-                                <div class="chat-avatars"><img src="img/icon01.png" alt="头像"/></div>
-                                <div class="chat-message">
-                                    <img src="img/1.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="clearfloat">
-                            <div class="author-name">
-                                <small class="chat-date">2017-12-02 14:26:58</small>
-                            </div>
-                            <div class="right">
-                                <div class="chat-message">嗯，适合做壁纸</div>
-                                <div class="chat-avatars"><img src="img/icon02.png" alt="头像"/></div>
-                            </div>
-                        </div>-->
-
                     </div>
                 </div>
                 <div class="chatBox-send">
@@ -182,7 +114,7 @@
             }
             //收到消息
             websocket.onmessage = function (event) {
-                console.log(event+"event")
+                console.log(event + "event")
                 var pset = JSON.stringify(event.data);
                 var msg = JSON.parse(event.data); //解析收到的json消息数据
                 //var type = msg.type; // 消息类型
@@ -192,20 +124,19 @@
                 var storage = window.localStorage;
                 var nowUserId = storage.nowUserId;
                 i++;
-                if (nowUserId==receiverId) {
+                if (nowUserId == receiverId) {
 
 
-
-                $(".chatBox-content-demo").append("<div class=\"clearfloat\">\n" +
-                        "                            <div class=\"author-name\">\n" +
-                        "                                <small class=\"chat-date\">"+msg.createDate+"</small>\n" +
-                        "                            </div>\n" +
-                        "                            <div class=\"left\">\n" +
-                        "                                <div class=\"chat-message\">"+umsg+"</div>\n" +
-                        "                                <div class=\"chat-avatars\"><img src=\"img/icon02.png\" alt=\"头像\"/></div>\n" +
-                        "                            </div>\n" +
-                        "                        </div>");
-                $('#message').val('');
+                    $(".chatBox-content-demo").append("<div class=\"clearfloat\">\n" +
+                            "                            <div class=\"author-name\">\n" +
+                            "                                <small class=\"chat-date\">" + msg.createDate + "</small>\n" +
+                            "                            </div>\n" +
+                            "                            <div class=\"left\">\n" +
+                            "                                <div class=\"chat-message\">" + umsg + "</div>\n" +
+                            "                                <div class=\"chat-avatars\"><img src=\"img/icon02.png\" alt=\"头像\"/></div>\n" +
+                            "                            </div>\n" +
+                            "                        </div>");
+                    $('#message').val('');
                 }
                 window.location.hash = '#' + i;
             }
@@ -221,6 +152,7 @@
                 console.log('websocket Connection Closed. ');
                 window.location.hash = '#' + i;
             }
+
             function send(e) {
 
 
@@ -230,6 +162,7 @@
                     console.log(ex);
                 }
             }
+
             //按下enter键发送消息
             $(window).keydown(function (event) {
                 if (event.keyCode == 13) {
@@ -252,11 +185,11 @@
                     $(document).ready(function () {
                         $("#chatBox-content-demo").scrollTop($("#chatBox-content-demo")[0].scrollHeight);
                     });
-                   $(".div-textarea").html().replace(/[\n\r]/g, '<br>');
+                    $(".div-textarea").html().replace(/[\n\r]/g, '<br>');
                     var receiverId = $("#chatBox-content-demo").attr("userId");
                     var storage = window.localStorage;
                     var senderId = storage.nowUserId;
-                    var msg = "{\"sendMsg\":\""+textContent+"\",\"receiverId\":"+receiverId+",\"sendType\": 10010,\"senderId\":"+senderId+"}";
+                    var msg = "{\"sendMsg\":\"" + textContent + "\",\"receiverId\":" + receiverId + ",\"sendType\": 10010,\"senderId\":" + senderId + "}";
                     send(msg);
                 }
 
@@ -268,6 +201,7 @@
 
     })
     screenFuc();
+
     function screenFuc() {
         var topHeight = $(".chatBox-head").innerHeight();//聊天头部高度
         //屏幕小于768px时候,布局change
@@ -292,6 +226,7 @@
             $(".div-textarea").css("width", 260);
         }
     }
+
     (window.onresize = function () {
         screenFuc();
     })();
@@ -316,29 +251,37 @@
         $(".chatBox").toggle(10);
     })
     //进聊天页面
-    $(".chatBox-list").on("click","p",function (e) {
-            //获取用户名
-            var userName = $(e.target).html();
-            var userId = $(e.target).attr("userId");
-            $(".chatBox-head-one").toggle();
-            $(".chatBox-head-two").toggle();
-            $(".chatBox-list").fadeToggle();
-            $(".chatBox-kuang").fadeToggle();
+    $(".chatBox-list").on("click", "p", function (e) {
 
-            //传名字
-            //$(".ChatInfoName").text($(this).children(".chat-name").children("p").eq(0).html());
-            $(".ChatInfoName").html(userName);
-            //传头像
-            $(".ChatInfoHead>img").attr("src", $(this).children().eq(0).children("img").attr("src"));
-            //传id
-            $("#chatBox-content-demo").attr("userId",userId);
-            //聊天框默认最底部
-            $(document).ready(function () {
-                $("#chatBox-content-demo").scrollTop($("#chatBox-content-demo")[0].scrollHeight);
-            });
-            queryChats(userId);
-
+        openChatWindow(e);
     });
+    //进聊天页面
+    $(".chatBox-list").on("click", "img", function (e) {
+
+        openChatWindow(e);
+    });
+
+    function openChatWindow(e) {
+        //获取用户名
+        var userName = $(e.target).html();
+        var userId = $(e.target).attr("userId");
+        $(".chatBox-head-one").toggle();
+        $(".chatBox-head-two").toggle();
+        $(".chatBox-list").fadeToggle();
+        $(".chatBox-kuang").fadeToggle();
+
+        //传名字
+        $(".ChatInfoName").html(userName);
+        //传头像
+        $(".ChatInfoHead>img").attr("src", $(this).children().eq(0).children("img").attr("src"));
+        //传id
+        $("#chatBox-content-demo").attr("userId", userId);
+        //聊天框默认最底部
+        $(document).ready(function () {
+            $("#chatBox-content-demo").scrollTop($("#chatBox-content-demo")[0].scrollHeight);
+        });
+        queryChats(userId);
+    }
 
     //返回列表
     $(".chat-return").click(function () {
@@ -347,7 +290,6 @@
         $(".chatBox-list").fadeToggle(1);
         $(".chatBox-kuang").fadeToggle(1);
     });
-
 
 
     //      发送表情
@@ -366,9 +308,9 @@
             var bq = $(this).parent().html();
             console.log(bq)
             $(".chatBox-content-demo").append("<div class=\"clearfloat\">" +
-                "<div class=\"author-name\"><small class=\"chat-date\">2017-12-02 14:26:58</small> </div> " +
-                "<div class=\"right\"> <div class=\"chat-message\"> " + bq + " </div> " +
-                "<div class=\"chat-avatars\"><img src=\"img/icon01.png\" alt=\"头像\" /></div> </div> </div>");
+                    "<div class=\"author-name\"><small class=\"chat-date\">2017-12-02 14:26:58</small> </div> " +
+                    "<div class=\"right\"> <div class=\"chat-message\"> " + bq + " </div> " +
+                    "<div class=\"chat-avatars\"><img src=\"img/icon01.png\" alt=\"头像\" /></div> </div> </div>");
             //发送后关闭表情框
             $(".biaoqing-photo").toggle();
             //聊天框默认最底部
@@ -387,9 +329,9 @@
         reader.onload = function (evt) {
             var images = evt.target.result;
             $(".chatBox-content-demo").append("<div class=\"clearfloat\">" +
-                "<div class=\"author-name\"><small class=\"chat-date\">2017-12-02 14:26:58</small> </div> " +
-                "<div class=\"right\"> <div class=\"chat-message\"><img src=" + images + "></div> " +
-                "<div class=\"chat-avatars\"><img src=\"img/icon01.png\" alt=\"头像\" /></div> </div> </div>");
+                    "<div class=\"author-name\"><small class=\"chat-date\">2017-12-02 14:26:58</small> </div> " +
+                    "<div class=\"right\"> <div class=\"chat-message\"><img src=" + images + "></div> " +
+                    "<div class=\"chat-avatars\"><img src=\"img/icon01.png\" alt=\"头像\" /></div> </div> </div>");
             //聊天框默认最底部
             $(document).ready(function () {
                 $("#chatBox-content-demo").scrollTop($("#chatBox-content-demo")[0].scrollHeight);
@@ -398,93 +340,101 @@
         reader.readAsDataURL(pic.files[0]);
 
     }
-   /*
-    访问后台js
-    */
 
-   //查询用户
-   function queryUser() {
-       console.log("来了");
-       $.ajax({
-           url: "/users/queryUserList",
-           type: "post",
-           dataType: "json",
-           beforeSend: function () {
-               $("#programBar").modal("show");
-           },
-           success: function (result) {
-               console.log(result);
-               var str = "";
-               var list = result.data;
-               for (var i = 0; i < list.length; i++) {
+    /*
+     访问后台js
+     */
 
-                   str += "<div class=\"chat-list-people\">\n" +
-                           "   <div><img src=\"images/icon03.png\" alt=\"头像\"/></div>\n" +
-                           "         <div class=\"chat-name\" >\n" +
-                           "                <p userid=\""+list[i].id+"\">"+list[i].userName+"</p>\n" +
-                           "          </div>\n" +
-                           "    <div class=\"message-num\">"+list[i].countMsg+"</div>\n" +
-                           " </div>";
-               }
+    //查询用户
+    function queryUser() {
+        console.log("来了");
+        $.ajax({
+            url: "/users/queryUserList",
+            type: "post",
+            dataType: "json",
+            beforeSend: function () {
+                $("#programBar").modal("show");
+            },
+            success: function (result) {
+                console.log(result);
+                var str = "";
+                var list = result.data;
+                for (var i = 0; i < list.length; i++) {
+
+                    str += "<div class=\"chat-list-people\">\n" +
+                            "   <div class><img userId = \"" + list[i].id + "\" src=\"images/icon03.png\" alt=\"头像\"/></div>\n" +
+                            "         <div class=\"chat-name\" >\n" +
+                            "                <p userid=\"" + list[i].id + "\">" + list[i].userName + "</p>\n" +
+                            "          </div>\n" +
+                            "    <div class=\"message-num\">" + list[i].countMsg + "</div>\n" +
+                            " </div>";
+                }
 
                 $(".chatBox-list").html(str);
-           },
-           error: function () {
-               alert("系统繁忙");
-           },
-           complete: function () {
-               $("#programBar").modal("hide");
-           }
-       });
+            },
+            error: function () {
+                alert("系统繁忙");
+            },
+            complete: function () {
+                $("#programBar").modal("hide");
+            }
+        });
 
 
-   }
+    }
 
-   function queryChats(senderId) {
-       console.log("queryChats");
-       var storage = window.localStorage;
-       var receiverId = storage.nowUserId;//接收id
-       console.log(receiverId+"--"+senderId);
-       $.ajax({
-           url: "/chat/queryChats",
-           type: "post",
-           data:"{\"receiverId\":"+receiverId+",\"senderId\":"+senderId+"}",
-           dataType: "json",
-           contentType:"application/json",
-           beforeSend: function () {
-               $("#programBar").modal("show");
-           },
-           success: function (result) {
-               console.log(result+"result");
-               var str = "";
-               var list = result.data;
-               for (var i = 0; i < list.length; i++) {
-                   var direction = "left";
-                   if(list[i].senderId==receiverId){
-                       direction="right";
-                   }
-                   str += "<div class=\"clearfloat\">\n" +
-                           "                            <div class=\"author-name\">\n" +
-                           "                                <small class=\"chat-date\">2017-12-02 14:26:58</small>\n" +
-                           "                            </div>\n" +
-                           "                            <div class="+direction+">\n" +
-                           "                                <div class=\"chat-message\">"+list[i].sendMsg+"</div>\n" +
-                           "                                <div class=\"chat-avatars\"><img src=\"img/icon03.png\" alt=\"头像\"/></div>\n" +
-                           "                            </div>\n" +
-                           "                        </div>";
-               }
+    function queryChats(senderId) {
+        console.log("queryChats");
+        var storage = window.localStorage;
+        var receiverId = storage.nowUserId;//接收id
+        console.log(receiverId + "--" + senderId);
+        $.ajax({
+            url: "/chat/queryChats",
+            type: "post",
+            data: "{\"receiverId\":" + receiverId + ",\"senderId\":" + senderId + "}",
+            dataType: "json",
+            contentType: "application/json",
+            beforeSend: function () {
+                $("#programBar").modal("show");
+            },
+            success: function (result) {
+                console.log(result + "result");
+                var str = "";
+                var list = result.data;
+                for (var i = 0; i < list.length; i++) {
+                    var direction = "left";
+                    if (list[i].senderId == receiverId) {
+                        direction = "right";
+                    }
+                    str += "<div class=\"clearfloat\">\n" +
+                            "<div class=\"author-name\">\n" +
+                            "<small class=\"chat-date\">2017-12-02 14:26:58</small>\n" +
+                            "</div>\n" +
+                            "<div class=" + direction + ">\n";
 
-               $("#chatBox-content-demo").html(str);
-           },
-           error: function () {
-               alert("系统繁忙");
-           },
-           complete: function () {
-               $("#programBar").modal("hide");
-           }
-       });
-   }
+                    if (direction == "right") {
+                        str +=  "<div class=\"chat-message\">" + list[i].sendMsg + "</div>\n" +
+                                "<div class=\"chat-avatars\"><img src=\"img/icon03.png\" alt=\"头像\"/></div>\n" +
+                                "</div>\n" +
+                                "</div>";
+                    } else {
+                        str +=  "<div class=\"chat-avatars\"><img src=\"img/icon03.png\" alt=\"头像\"/></div>\n" +
+                                "<div class=\"chat-message\">" + list[i].sendMsg + "</div>\n" +
+                                "</div>\n" +
+                                "</div>";
+                    }
 
+                }
+                $("#chatBox-content-demo").html(str);
+            },
+            error: function () {
+                alert("系统繁忙");
+            },
+            complete: function () {
+                $("#programBar").modal("hide");
+            }
+        });
+    }
 
 
 </script>

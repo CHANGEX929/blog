@@ -1,25 +1,22 @@
 package com.personalblog.blog.test;
 
-import com.alibaba.fastjson.JSON;
-import com.changex.blog.core.pojo.dto.BlogArticleDTO;
+import com.changex.blog.core.pojo.TBlogArticle;
 import com.changex.blog.core.pojo.dto.UserDTO;
-import com.changex.blog.mapper.base.TSysUserMapper;
-import com.changex.blog.service.TBlogArticleService;
 import com.changex.blog.service.TSysUserService;
 import com.changex.blog.tools.MD5Utils;
 import com.personalblog.blog.BlogApplicationTests;
 import org.junit.Test;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.data.redis.core.ValueOperations;
 
 import javax.annotation.Resource;
+import java.time.LocalDateTime;
 
 /**
  * @Author Xie Chenxi
  * @Date 2018/11/24 0:02
  */
-@SpringBootConfiguration
-@MapperScan("com.changex.blog.mapper.base")
 public class MyTest extends BlogApplicationTests {
 
    /* @Resource
@@ -39,6 +36,14 @@ public class MyTest extends BlogApplicationTests {
 
     @Resource
     private TSysUserService sysUserService;
+    @Resource
+    private ValueOperations<String,TBlogArticle> valueOperations;
+
+    @Test
+    public void test1(){
+        valueOperations.set("test",TBlogArticle.builder().createDate(LocalDateTime.now()).build());
+        System.out.println(valueOperations.get("test"));
+    }
 
     @Test
     public void test() {

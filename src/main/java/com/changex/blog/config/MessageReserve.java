@@ -1,41 +1,39 @@
 package com.changex.blog.config;
 
-import java.time.LocalDateTime;
-import java.util.concurrent.CountDownLatch;
-
 import com.alibaba.fastjson.JSON;
-import com.changex.blog.controller.websocket.WebsocketController;
 import com.changex.blog.core.pojo.TBlogChat;
 import com.changex.blog.service.TBlogChatService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+import java.util.concurrent.CountDownLatch;
 
 
 @Component
+@Slf4j
 public class MessageReserve {
 
     @Autowired
-    private RedisClient                   redisClient;
+    private RedisClient redisClient;
     @Autowired
-    private static   CountDownLatch latch = new CountDownLatch(1);
+    private static CountDownLatch latch = new CountDownLatch(1);
 
     @Autowired
     private TBlogChatService tBlogChatService;
 
-    public MessageReserve(){}
+    public MessageReserve() {
+    }
 
 
-
-    public void message(String message){
-        System.out.println("-----------------------------开始----------------------");
-        System.out.println("msgContent:" + message);
+    public void message(String message) {
+        log.info("-----------------------------开始----------------------");
+        log.info("msgContent:" + message);
         TBlogChat tBlogChat = JSON.parseObject(message, TBlogChat.class);
         tBlogChat.setIsValid(1);
-        tBlogChat.setCreateDate(LocalDateTime.now());
         Integer id = tBlogChatService.saveChat(tBlogChat);
-        System.out.println("id"+id);
-
+        log.info("id" + id);
         latch.countDown();
     }
 

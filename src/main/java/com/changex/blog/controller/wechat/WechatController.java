@@ -1,8 +1,6 @@
 package com.changex.blog.controller.wechat;
 
-import com.changex.blog.core.pojo.dto.WxCheckerDTO;
 import com.changex.blog.tools.SHA1;
-import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

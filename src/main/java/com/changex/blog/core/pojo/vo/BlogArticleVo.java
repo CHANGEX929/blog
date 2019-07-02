@@ -1,10 +1,7 @@
 package com.changex.blog.core.pojo.vo;
 
 import com.changex.blog.core.pojo.TBlogArticle;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 

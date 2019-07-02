@@ -154,6 +154,18 @@
             <version>1.7.25</version>
             <scope>compile</scope>
         </dependency>
+
+        <!-- 使用spring websocket依赖的jar包 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-websocket</artifactId>
+            <version>4.3.6.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-messaging</artifactId>
+            <version>4.3.6.RELEASE</version>
+        </dependency>
     </dependencies>
 
     <build>
