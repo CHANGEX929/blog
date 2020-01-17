@@ -18,7 +18,7 @@ spring:
     settings:
       number_format: '0.##' #数字格式化，无小数点
   profiles:
-    active: prod
+    active: local
 
 mybatis-plus:
   mapper-locations:  classpath*:/mapper/*Mapper.xml
